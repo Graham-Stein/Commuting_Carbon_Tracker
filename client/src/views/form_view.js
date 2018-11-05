@@ -5,6 +5,7 @@ const FormView = function(formElement) {
 };
 
 FormView.prototype.bindEvents = function() {
+  console.log('this element',this.element);
   this.element.addEventListener('submit', (evt) => {
     // call handlesubmit
     this.handleSubmit(evt);
@@ -14,6 +15,7 @@ FormView.prototype.bindEvents = function() {
 FormView.prototype.handleSubmit = function(evt) {
   evt.preventDefault();
   // const form = evt.target;
+  // console.log('event target in handle submit', evt.target);
   const newCommuteData = this.createNewCommute(evt.target);
   PubSub.publish('FormView:add-item', newCommuteData);
 };

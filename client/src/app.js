@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // bindEvents form_view
   const inputTravel = document.querySelector('form#input-travel');
+  console.log('input travel from app', inputTravel);
   const formView = new FormView(inputTravel);
   formView.bindEvents();
 });
