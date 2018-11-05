@@ -1,13 +1,18 @@
 const PubSub = require("../helpers/pub_sub.js");
 
 const Calculator = function(){
-  this.consts = [{"diesel", }, // add values here
-                 {"petrol", },
-                 {"bus", }];
+  this.consts = [{"diesel", 0.218}, // add values here
+                 {"petrol", 0.286}, // gCO2e/km
+                 {"bus", 0.124},
+                 {"train", 0.05}]; // more figures on docs
 };
 
-Calculator.prototype.bindEvents = function () {
-  PubSub.subscribe('Form', (evt) => {
-    this.data = evt.detail
-  });
-};
+// Calculator.prototype.bindEvents = function () {
+//   PubSub.subscribe('Form', (evt) => {
+//     this.data = evt.detail
+//   });
+// };
+
+
+
+module.exports = Calculator;
