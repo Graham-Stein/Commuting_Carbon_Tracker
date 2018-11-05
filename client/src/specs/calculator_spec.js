@@ -6,7 +6,7 @@ describe('Calculator', function(){
 let calculator1;
 
 beforeEach(function(){
-  calculator1 = new Calculator(20, 10, 5)
+  calculator1 = new Calculator(commute)
 });
 
 it('should have a distance', function(){
