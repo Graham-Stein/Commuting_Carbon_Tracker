@@ -66,9 +66,9 @@ Calculator.prototype.inputCarbon = function() {
   return result;
 };
 
-Calculator.prototype.handleTripData = function(key) {
+Calculator.prototype.handleTripData = function(factorKey) {
   this.data.forEach((dataKey) => {
-    if (key == dataKey) {
+    if (factorKey == dataKey) {
       travelModeTrips = this.data[dataKey];
       console.log('Travel mode Trips:', travelModeTrips);
       return travelModeTrips;
