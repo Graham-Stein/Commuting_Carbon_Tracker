@@ -1,7 +1,11 @@
 const PubSub = require("../helpers/pub_sub.js");
 
 // We should initialise the calculator with all the conversion factors already present and pass it a set of form data that is unique to each trip! much simpler than having this many different arguments/inputs.
+<<<<<<< HEAD
 // need to know what the form looks like though before we can do that/
+=======
+// need to know what the form looks like though before we can do that///
+>>>>>>> develop
 
 const Calculator = function(distance, volume, frequency){
   // travel distance
