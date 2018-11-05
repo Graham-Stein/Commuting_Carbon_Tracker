@@ -52,9 +52,9 @@ Calculator.prototype.bus = function() {
 };
 
 Calculator.prototype.inputCarbon = function() {
-  this.data.forEach()
+  this.data.forEach();
 
-  return result
+  return result;
 };
 
 module.exports = Calculator;
