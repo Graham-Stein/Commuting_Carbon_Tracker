@@ -19,7 +19,7 @@ FormView.prototype.setupEventListeners = function() {
       cycle: form['cycle'].value,
     };
     PubSub.publish('FormView:add-item', newItem);
-    console.log("formview new item", newItem);
+    console.log('formview new item', newItem);
 
     form.reset();
   });
