@@ -26,8 +26,9 @@ describe('Calculator', function() {
     assert.strictEqual('10', actual);
   });
 
-  xit('should have a number of trips', function() {
-
+  it('should have a number of trips', function() {
+    const actual = calculator1.carbonOutput();
+    assert.strictEqual('10', actual);
   });
 
   xit('should be able to return total distance', function() {
