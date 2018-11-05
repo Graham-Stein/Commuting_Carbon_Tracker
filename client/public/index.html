@@ -4,28 +4,28 @@
   <meta charset="utf-8">
   <title></title>
   <script src="./js/bundle.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
 
-  <legend>Your Current Commute Distance</legend>
+  <section class ="form-header">Your Current Commute Distance</section>
   <form id="input-travel">
-    <label for="single-trip-distance">How many kilometers is a single trip:<input type="number" id="single-trip-distance"></label>
+    <label for="single-trip-distance">How many kilometers is a single trip:<input type="number" id='single-trip-distance'></label>
 
     <label for="commuting-days">How many days a week do you commute?<input type="number" id="commuting-days"></label>
 
     <label for="single-trips-per-day">How many single trips do you make in a day?<input type="number" id="single-trips-per-day"></label>
-    <!-- <input type="submit" name="" value="Save"> -->
-  <!-- </form> -->
 
+
+    <section class ="form-header">Allocate How You Travel</section>
 
 <div id="total-daily-distance">
   <!-- total distance per day returned via javascript here -->
 </div>
 
 
-  <legend>Allocate How You Travel</legend>
-<!-- <form id="allocate-travel"> -->
+
   <div id="allocate-message">
     Allocate your [num] commute trips to a mode of transport.
   </div>
@@ -36,9 +36,6 @@
   <label for="cycle">Cycle:<input type="number" id="cycle"> </label>
   <input type="submit" name="" value="Save">
 </form>
-
-
-
 
 </body>
 </html>
