@@ -1,3 +1,107 @@
-.form-header{
-  font-weight: 700;
+body {
+  font-family: 'Helvetica', 'Calibri', sans-serif;
+  font-size:1rem;
+  margin: 1rem 3rem;
+}
+
+label {
+  color: black;
+  font-size: 0.8rem;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  width: 20%;
+  font-size: 1rem;
+  line-height:1rem;
+  align: right;
+  background-color: #7a1113; /* maroon */
+  color: white;
+  float: right;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: Grey; /* maroon */
+    color: white;
+    float: right;
+}
+
+input {
+  width: 20%;
+  font-size: 1rem;
+  line-height:1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+    border: 1;
+  	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 2fr 1fr;
+
+}
+
+fieldset {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0,0,0,1);
+  background-color: rgb(240,240,240);
+}
+
+section {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+fieldset {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0,0,0,1);
+  background-color: rgb(240,240,240);
+}
+
+legend {
+   background-color: #7a1113;
+  padding: 0.75rem;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  transform: translateX(-1.1rem);
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.8);
+}
+
+section, button {
+  background-color: grey;
+  padding: 0.75rem;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  transform: translateX(-1.1rem);
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.8);
+}
+
+button {
+  transform: none;
+  box-shadow: none;
+}
+
+button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+legend:after {
+  content: "";
+  height: 0;
+  width:0;
+  background-color: transparent;
+  border-top: 0.0rem solid transparent;
+  border-right:  0.35rem solid black;
+  border-bottom: 0.45rem solid transparent;
+  border-left: 0.0rem solid transparent;
+  position:absolute;
+  left:-0.075rem;
+  bottom: -0.45rem;
 }

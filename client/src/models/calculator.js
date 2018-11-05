@@ -1,59 +1,50 @@
-const PubSub = require("../helpers/pub_sub.js");
+const PubSub = require('../helpers/pub_sub.js');
 
-// We should initialise the calculator with all the conversion factors already present and pass it a set of form data that is unique to each trip! much simpler than having this many different arguments/inputs.
-// need to know what the form looks like though before we can do that/
-
-const Calculator = function(distance, volume, frequency){
-  // travel distance
-  this.distance = distance;
-  // number of trips
-  this.volume = volume;
-  // // diesel/petrol/bus/bike/electric etc.
-  // this.emissions = emissions; // going to pass this in from a PubSub later to get an array of hashes?
-  // number of a certain trip (based on each case passed to the calculator)
-  this.frequency = frequency;
-  // mpty array for projection calculations that can be returned later
-  this.projections = [];
+const Calculator = function() {
+  this.consts = [{'diesel': 0.218}, // add values here
+    {'petrol': 0.286}, // gCO2e/km
+    {'bus': 0.124},
+    {'hybrid': 0.118},
+    {'train': 0.05},
+    {'cycle': 0}]; // more figures on docs
 };
 
-// we want the calculator to subscribe to a bunch of data, not 100% what that will be just yet but will be ready for it
-
-Calculator.prototype.bindEvents = function () {
-  // thinking it should subscribe to direct emissions multipliers
-  //// Cancel that, subscribe to a list of modes rather than emissions multipliers as we can pass it directly instead
-  // cancel the cancel, subscribe to both, emissions their mode (and their frequency) so that we can calculate each of the projections
-  PubSub.subscribe("", (evt) => {
-    // adding a feature to the model
-    this.modes = evt.detail
+Calculator.prototype.bindEvents = function() {
+  PubSub.subscribe('Form', (evt) => {
+    this.data = evt.detail;
+    // this.handleData(this.data.target);
+    // console.log('data', this.data);
+    // console.log('Data Arriving', this.data['singe-trip-disance'].value);
   });
 };
 
-Calculator.prototype.totalDistance = function () {
-  const total += (this.distance * this.volume);
-  return total;
-};
-
-Calculator.prototype.distanceByMode = function (mode) {
-  const total = (this.distance * this.modes.frequency);
-  return total
-}; //  need to get some data in and then get the specific one out to get the answer
-
-Calculator.prototype.emissionsByMode = function () {
-  const total = ((this.distanceByMode()) * this.emissions);
-  return total
-};
-
-Calculator.prototype.emissionProjections = function () {
-  this.modes.forEach((mode) => {
-    const total = (mode.emissions * this.distance)
-    projections.push(total);
-  });
-  return total
-};
-
-// Calculator.prototype.totalEmissions = function () {
-//   const total = ((this.emissionsByMode()))
+// Calculator.prototype.handleData = function(data) {
+//   // distance in km
+//   this.singleTripDistance = data['single-trip-distance'].value;
+//
+//   // used for total trips
+//   this.commutingDays = data['commuting-days'].value;
+//
+//   // single way
+//   this.tripsPerDay = data['single-trips-per-day'].value;
+//
+//   // trip numbers for each mode here (so eg 5 diesel trips)
+//   this.dieselCar = data['car-diesel'].value;
+//
+//   this.petrolCar = data['car-petrol'].value;
+//
+//   this.hybrid = data['car-hybrid'].value;
+//
+//   this.bus = data['bus'].value;
+//
+//   this.cycle = data['cycle'].value;
+//   // end of trip numbers
 // };
+
+Calculator.prototype.totalDistance = function() {
+  const totalDistance = this.singleTripDistance * (this.tripsPerDay * this.commutingDays);
+  return totalDistance;
+};
 
 
 module.exports = Calculator;

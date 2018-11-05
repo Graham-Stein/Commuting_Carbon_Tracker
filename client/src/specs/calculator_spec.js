@@ -6,17 +6,15 @@ describe('Calculator', function(){
 let calculator1;
 
 beforeEach(function(){
-  calculator1 = new Calculator(20, 10, 5)
+  calculator1 = new Calculator(commute)
 });
 
 it('should have a distance', function(){
-  const actual = calculator1.distance;
-  assert.strictEqual(20, actual);
+
 });
 
 xit('should have a number of trips', function(){
-  const actual = calculator1.volume;
-  assert.strictEqual(10, actual);
+
 });
 
 xit('should be able to return total distance', function(){
