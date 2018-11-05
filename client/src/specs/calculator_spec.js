@@ -10,11 +10,11 @@ describe('Calculator', function() {
       singleTripDistance: '10',
       commutingDays: '5',
       singleTripsPerDay: '2',
-      carDiesel: '6',
+      carDiesel: '5',
       carPetrol: '0',
       carHybrid: '0',
       bus: '4',
-      cycle: '0',
+      cycle: '1',
     };
     calculator1 = new Calculator(data);
     // calculator1.bindEvents();
