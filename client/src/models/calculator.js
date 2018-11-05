@@ -19,11 +19,13 @@ Calculator.prototype.bindEvents = function() {
 };
 
 Calculator.prototype.handleData = function(data) {
+  // distance in km
+  this.singleTripDistance = data['single-trip-distance'].value;
 
-  this.singleTripDistance = data['singe-trip-disance'].value;
-
+  // used for total trips
   this.commutingDays = data['commuting-days'].value;
 
+  // single way
   this.tripsPerDay = data['single-trips-per-day'].value;
 
   // trip numbers for each mode here (so eg 5 diesel trips)
@@ -36,6 +38,7 @@ Calculator.prototype.handleData = function(data) {
   this.bus = data['bus'].value;
 
   this.cycle = data['cycle'].value;
+  // end of trip numbers
 };
 
 
