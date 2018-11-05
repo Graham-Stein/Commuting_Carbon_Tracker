@@ -12,9 +12,10 @@ FormView.prototype.setupEventListeners = function() {
       singleTripDistance: form['single-trip-distance'].value,
       commutingDays: form['commuting-days'].value,
       singleTripsPerDay: form['single-trips-per-day'].value,
+// need these to be in an array so that we can loop through them in the calculator
       carDiesel: form['car-diesel'].value,
       carPetrol: form['car-petrol'].value,
-      carHyrid: form['car-hybrid'].value,
+      carHybrid: form['car-hybrid'].value,
       bus: form['bus'].value,
       cycle: form['cycle'].value,
     };
