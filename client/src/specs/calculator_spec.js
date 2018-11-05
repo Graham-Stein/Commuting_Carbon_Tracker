@@ -1,16 +1,30 @@
 const assert = require('assert');
 const Calculator = require('../models/calculator.js');
 
-describe('Calculator', function(){
+describe('Calculator', function() {
 
 let calculator1;
+let data;
 
-beforeEach(function(){
-  calculator1 = new Calculator(commute)
-});
+beforeEach(function() {
+    calculator1 = new Calculator();
+    data = {
+      singleTripDistance: '10',
+      commutingDays: '5',
+      singleTripsPerDay: '2',
+      carDiesel: '6',
+      carPetrol: '0',
+      carHyrid: '0',
+      bus: '4',
+      cycle: '0',
+    };
+    calculator1.bindEvents();
+    PubSub.publish('FormView:add-item', data);
+  });
 
-it('should have a distance', function(){
-
+it('should have a distance', function() {
+  const actual = calculator1.this.data.singleTripDistance;
+  assert.strictEqual(10, actual);
 });
 
 xit('should have a number of trips', function(){
