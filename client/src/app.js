@@ -1,5 +1,5 @@
 const Calculator = require('./models/calculator.js');
-// const PubSub = require('./helpers/pub_sub.js');
+const PubSub = require('./helpers/pub_sub.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JS Loaded');
@@ -9,9 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // console.log('What is the form?', form);
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const event = evt;
-    // PubSub.publish('Form', event)
-    console.log('Event', event);
+    PubSub.publish('Form', evt);
+    // console.log('Event', evt);
   });
 
 });

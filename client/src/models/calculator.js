@@ -12,7 +12,30 @@ const Calculator = function() {
 Calculator.prototype.bindEvents = function() {
   PubSub.subscribe('Form', (evt) => {
     this.data = evt.detail;
+    this.handleData(this.data.target);
+    // console.log('data', this.data);
+    // console.log('Data Arriving', this.data['singe-trip-disance'].value);
   });
+};
+
+Calculator.prototype.handleData = function(data) {
+
+  this.singleTripDistance = data['singe-trip-disance'].value;
+
+  this.commutingDays = data['commuting-days'].value;
+
+  this.tripsPerDay = data['single-trips-per-day'].value;
+
+  // trip numbers for each mode here (so eg 5 diesel trips)
+  this.dieselCar = data['car-diesel'].value;
+
+  this.petrolCar = data['car-petrol'].value;
+
+  this.hybrid = data['car-hybrid'].value;
+
+  this.bus = data['bus'].value;
+
+  this.cycle = data['cycle'].value;
 };
 
 
