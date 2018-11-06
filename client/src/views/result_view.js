@@ -1,8 +1,11 @@
 const PubSub = require('../helpers/pub_sub.js');
+const AllResultData = require('../models/result_data.js');
 
 const ResultView = function(container) {
   this.container = container;
 };
+
+const allResultData = new AllResultData();
 
 ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:added-item', (evt) => {
@@ -10,16 +13,17 @@ ResultView.prototype.bindEvents = function() {
     this.render(evt.details);
   });
   //  create an object that will get populated with the data that's coming
-  allResultData = new AllResultData();
+  // console.log('log all result data', allResultData);
   // subscribe for all output
   PubSub.subscribe('Calculator:output-all', (evt) =>{
     // trigger an all output function
     this.populateAllData(evt.detail);
   });
   // subscribe for user output
-  PubSub.subscribe('Calcultator:output-user-commute', (evt) =>{
+  PubSub.subscribe('Calculator:output-user-commute', (evt) =>{
     // trigger a user output function
     this.populateUserCommuteData(evt.detail);
+    console.log('calculator passing in', evt);
   });
 };
 
@@ -28,11 +32,12 @@ ResultView.prototype.populateAllData = function(outputAllData) {
   // populate the object
   allResultData.carDiesel = outputAllData.carDiesel;
   allResultData.carPetrol = outputAllData.carPetrol;
-  allResultData.carHyrid = outputAllData.carHyrid;
+  allResultData.carHybrid = outputAllData.carHybrid;
   allResultData.bus = outputAllData.bus;
-  allResultData.bike = outputAllData.bike;
+  allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
-  if (allResultData.userCommute === null) {
+  if (allResultData.userMix === null) {
+    console.log("running populate all data", allResultData);
     return allResultData;
   } else {
     // we might not be publishing --- this line is to send the data to highcharts
@@ -47,13 +52,16 @@ ResultView.prototype.populateUserCommuteData = function(outputUserData) {
   // add first
   let userData = 0;
 
-  userTotal = userData + outputUserData.carDiesel;
+  let userTotal = userData + outputUserData.carDiesel;
   userTotal = userTotal + outputUserData.carPetrol;
-  userTotal = userTotal + outputUserData.carHyrid;
+  userTotal = userTotal + outputUserData.carHybrid;
   userTotal = userTotal + outputUserData.bus;
-  userTotal = userTotal + outputUserData.bike;
+  userTotal = userTotal + outputUserData.cycle;
+  console.log("user total", userTotal);
   // set user value
-  allResultData.userCommute = userData;
+  allResultData.userMix = userTotal;
+  // console.log("user data", userTotal);
+  // console.log("car d", outputUserData.carDiesel);
   // console.log('final', userTotal);
 
   if (allResultData.carDiesel > 0) {
@@ -86,9 +94,9 @@ ResultView.prototype.render = function(form) {
   this.createTextElement('p', form.value);
   this.container.appendChild(carPetrol);
 
-  const carHyrid =
+  const carHybrid =
   this.createTextElement('p', form.value);
-  this.container.appendChild(carHyrid);
+  this.container.appendChild(carHybrid);
 
   const bus =
   this.createTextElement('p', form.value);

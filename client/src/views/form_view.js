@@ -36,7 +36,6 @@ FormView.prototype.createNewCommute = function(form) {
 };
 // };
 
-
 // form.reset();
 // });
 // };

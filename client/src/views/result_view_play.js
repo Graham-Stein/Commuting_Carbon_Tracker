@@ -9,7 +9,7 @@ resultData.carDiesel = 1;
 resultData.carHybrid = 1;
 resultData.carPetrol = 2;
 resultData.bus = 3;
-resultData.bike = 5;
+resultData.cycle = 5;
 
 // create a dake of the outputUserData
 const outputUserData = {
@@ -17,7 +17,7 @@ const outputUserData = {
   carHyrid: 2,
   carPetrol: 3,
   bus: 1,
-  bike: 1
+  cycle: 1
 };
 
 //  call ResultView.populateUserCommuteData(outputUserData)

@@ -3,8 +3,8 @@ const AllResultData = function() {
   this.carPetrol = null;
   this.carHybrid = null;
   this.bus = null;
-  this.bike = null;
-  this.userCommute = null;
+  this.cycle = null;
+  this.userMix = null;
 };
 
 module.exports = AllResultData;
