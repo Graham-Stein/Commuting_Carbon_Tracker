@@ -30,31 +30,31 @@ Calculator.prototype.totalDistance = function() {
   return totalDistance;
 };
 
-Calculator.prototype.totalCarbonPerSingleMode = function() {
-  const object = {};
+Calculator.prototype.totalCarbonForEachMode = function() {
+  const forEachModeObject = {};
+  for (const [conversionFactorKey, value] of Object.entries(this.conversionFactors)) {
+    const totalDistance = this.totalDistance();
+    const modeCO2 = value * totalDistance;
+    forEachModeObject[conversionFactorKey] = modeCO2;
+  };
+  return forEachModeObject;
+};
+
+Calculator.prototype.totalCarbonUserBreakdown = function() {
+  const userBreakdownObject = {};
   for (const [conversionFactorKey, value] of Object.entries(this.conversionFactors)) {
     const singleTrips = this.handleTripData(conversionFactorKey);
     console.log('calling single trips', singleTrips);
     const totalCO2 = singleTrips * value * this.data.singleTripDistance;
-    object[conversionFactorKey] = totalCO2;
+    userBreakdownObject[conversionFactorKey] = totalCO2;
   };
-  console.log('the object', object);
-  return object;
+  console.log('the userBreakdownObject', userBreakdownObject);
+  return userBreakdownObject; // This will pubsub eventually
 };
 
 Calculator.prototype.handleTripData = function(factorKey) {
   const singleTrips = this.data[factorKey];
   return singleTrips;
-
-  //
-  // for (const [dataKey, value] of Object.entries(this.data)) {
-  //   if (factorKey == dataKey) {
-  //     const singleTrips = value;
-  //     // console.log('value', value);
-  //     // console.log('Travel mode Trips:', singleTrips);
-  //     return singleTrips;
-  //   };
-  // };
 };
 
 Calculator.prototype.worstCase = function() {

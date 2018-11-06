@@ -18,8 +18,6 @@ describe('Calculator', function() {
     };
     calculator1 = new Calculator();
     calculator1.setData(data);
-    // calculator1.bindEvents();
-    // PubSub.publish('FormView:add-item', data);
   });
 
   it('should have a distance', function() {
@@ -43,7 +41,12 @@ describe('Calculator', function() {
   });
 
   it('should be able to return single trip data', function() {
-    const actual = calculator1.totalCarbonPerSingleMode();
+    const actual = calculator1.totalCarbonUserBreakdown();
+    assert.strictEqual(actual, '5');
+  });
+
+  it('should be able to return total max carbon object', function() {
+    const actual = calculator1.totalCarbonForEachMode();
     assert.strictEqual(actual, '5');
   });
 
