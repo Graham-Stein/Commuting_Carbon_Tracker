@@ -11,8 +11,8 @@ describe('Calculator', function() {
       commutingDays: '5',
       singleTripsPerDay: '2',
       carDiesel: '5',
-      carPetrol: '0',
-      carHybrid: '0',
+      carPetrol: '',
+      carHybrid: '',
       bus: '4',
       cycle: '1',
     };

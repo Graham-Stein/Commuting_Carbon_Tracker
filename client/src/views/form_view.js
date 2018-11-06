@@ -25,7 +25,7 @@ FormView.prototype.createNewCommute = function(form) {
     singleTripsPerDay: form['single-trips-per-day'].value,
     carDiesel: form['car-diesel'].value,
     carPetrol: form['car-petrol'].value,
-    carHyrid: form['car-hybrid'].value,
+    carHybrid: form['car-hybrid'].value,
     bus: form['bus'].value,
     cycle: form['cycle'].value,
   };

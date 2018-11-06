@@ -13,6 +13,8 @@ Calculator.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:add-item', (evt) => {
     this.setData(evt.detail);
     console.log('Calc receiving data', this.data);
+    this.totalCarbonForEachMode();
+    this.totalCarbonUserBreakdown();
   });
 };
 
@@ -26,7 +28,6 @@ Calculator.prototype.totalDistance = function() {
   const tripsPerDay = this.data.singleTripsPerDay;
 
   const totalDistance = singleDistance * days * tripsPerDay;
-
   return totalDistance;
 };
 
@@ -37,6 +38,7 @@ Calculator.prototype.totalCarbonForEachMode = function() {
     const modeCO2 = value * totalDistance;
     forEachModeObject[conversionFactorKey] = modeCO2;
   };
+  PubSub.publish('Calculator:output-all', forEachModeObject);
   return forEachModeObject;
 };
 
@@ -44,11 +46,10 @@ Calculator.prototype.totalCarbonUserBreakdown = function() {
   const userBreakdownObject = {};
   for (const [conversionFactorKey, value] of Object.entries(this.conversionFactors)) {
     const singleTrips = this.handleTripData(conversionFactorKey);
-    console.log('calling single trips', singleTrips);
     const totalCO2 = singleTrips * value * this.data.singleTripDistance;
     userBreakdownObject[conversionFactorKey] = totalCO2;
   };
-  console.log('the userBreakdownObject', userBreakdownObject);
+  PubSub.publish('Calculator:output-user-commute', userBreakdownObject);
   return userBreakdownObject; // This will pubsub eventually
 };
 
@@ -57,16 +58,16 @@ Calculator.prototype.handleTripData = function(factorKey) {
   return singleTrips;
 };
 
-Calculator.prototype.worstCase = function() {
-  const petrol = this.coversionFactors['carPetrol'];
-  const result = petrol * this.totalDistance();
-  return Math.round(result*100)/100;
-};
-
-Calculator.prototype.bus = function() {
-  const bus = this.coversionFactors['bus'];
-  const result = bus * this.totalDistance();
-  return result;
-};
+// Calculator.prototype.worstCase = function() {
+//   const petrol = this.coversionFactors['carPetrol'];
+//   const result = petrol * this.totalDistance();
+//   return Math.round(result*100)/100;
+// };
+//
+// Calculator.prototype.bus = function() {
+//   const bus = this.coversionFactors['bus'];
+//   const result = bus * this.totalDistance();
+//   return result;
+// };
 
 module.exports = Calculator;
