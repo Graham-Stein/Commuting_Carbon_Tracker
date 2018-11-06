@@ -55,7 +55,6 @@ Calculator.prototype.carbonOutput = function() {
 Calculator.prototype.worstCase = function() {
   const petrol = this.coversionFactors['carPetrol'];
   const result = petrol * this.totalDistance();
-
   return Math.round(result*100)/100;
 };
 

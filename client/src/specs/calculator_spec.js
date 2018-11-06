@@ -32,14 +32,14 @@ describe('Calculator', function() {
     assert.strictEqual(actual, 100);
   });
 
-  it('should be able to calculate a worst case scenarip', function() {
+  it('should be able to calculate a worst case scenario', function() {
     const actual = calculator1.worstCase();
     assert.strictEqual(actual, 28.6);
   });
 
   xit('should be able to calculate distance', function() {
     const actual = calculator1.distanceByMode('Diesel Car');
-    assert.strictEqual(100, actual);
+    assert.strictEqual(actual, 50);
   });
 
   xit('should be able to calculate emissions', function() {
