@@ -36,21 +36,27 @@ Calculator.prototype.carbonOutput = function() {
   Object.entries(this.conversionFactors).forEach(
       ([key, value]) => {
         console.log(key, value);
-        const tripNumber = handleTripData(key);
-        return tripNumber;
+        const singleTrips = handleTripData(key);
+        return singleTrips;
+        // get the total distance
+        // multiply singleTrips * totalDistance * value (the conversion value)
+        // make a JS Object using existing key name and the value calculated above
       });
-  // this.coversionFactors.forEach((key) => {
-  // return key;
-  // const factor = this.coversionFactors[key];
-  //   console.log('Factor', factor);
-
-  // const tripNumber = handleTripData(key);
+};
   // console.log('tripNumber in carbon output:', tripNumber);
   // use those to extract number of trips from this.data for each key
   // });
   // then multiply by this.data.STD and const for travel type}
+Calculator.prototype.handleTripData = function(factorKey) {
+  Object.entries(this.data).forEach(
+      ([dataKey, value]) => {
+        if (factorKey == dataKey) {
+          singleTrips = value;
+          console.log('Travel mode Trips:', singleTrips);
+          return singleTrips;
+        };
+      });
 };
-
 
 Calculator.prototype.worstCase = function() {
   const petrol = this.coversionFactors['carPetrol'];
@@ -70,15 +76,6 @@ Calculator.prototype.inputCarbon = function() {
   return result;
 };
 
-Calculator.prototype.handleTripData = function(factorKey) {
-  this.data.forEach((dataKey) => {
-    if (factorKey == dataKey) {
-      travelModeTrips = this.data[dataKey];
-      console.log('Travel mode Trips:', travelModeTrips);
-      return travelModeTrips;
-    };
-  });
-};
 
 
 module.exports = Calculator;
