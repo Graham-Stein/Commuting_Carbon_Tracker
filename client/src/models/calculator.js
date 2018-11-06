@@ -51,11 +51,12 @@ Calculator.prototype.handleTripData = function(factorKey) {
   Object.entries(this.data).forEach(
       ([dataKey, value]) => {
         // console.log('factor key', factorKey);
-        console.log('data key', dataKey);
+        // console.log('data key', dataKey);
         if (factorKey == dataKey) {
           const singleTrips = value;
+          console.log('value', value);
           console.log('Travel mode Trips:', singleTrips);
-          return singleTrips;
+          return value;
         };
       });
 };
