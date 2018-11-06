@@ -1,30 +1,43 @@
-const PubSub = require('./helpers/pub_sub.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const FormView = function(formElement) {
   this.element = formElement;
 };
 
-FormView.prototype.setupEventListeners = function() {
-  this.element.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-    const form = evt.target;
-    const newItem = {
-      singleTripDistance: form['single-trip-distance'].value,
-      commutingDays: form['commuting-days'].value,
-      singleTripsPerDay: form['single-trips-per-day'].value,
-// need these to be in an array so that we can loop through them in the calculator
-      carDiesel: form['car-diesel'].value,
-      carPetrol: form['car-petrol'].value,
-      carHybrid: form['car-hybrid'].value,
-      bus: form['bus'].value,
-      cycle: form['cycle'].value,
-    };
-    PubSub.publish('FormView:add-item', newItem);
-    console.log('formview new item', newItem);
-
-    form.reset();
+FormView.prototype.bindEvents = function() {
+  this.element.addEventListener('submit', (evt) => {
+    // call handlesubmit
+    this.handleSubmit(evt);
   });
 };
+
+FormView.prototype.handleSubmit = function(evt) {
+  evt.preventDefault();
+  // const form = evt.target;
+  const newCommuteData = this.createNewCommute(evt.target);
+  PubSub.publish('FormView:add-item', newCommuteData);
+};
+
+FormView.prototype.createNewCommute = function(form) {
+  const newCommuteData = {
+    singleTripDistance: form['single-trip-distance'].value,
+    commutingDays: form['commuting-days'].value,
+    singleTripsPerDay: form['single-trips-per-day'].value,
+    carDiesel: form['car-diesel'].value,
+    carPetrol: form['car-petrol'].value,
+    carHyrid: form['car-hybrid'].value,
+    bus: form['bus'].value,
+    cycle: form['cycle'].value,
+  };
+  console.log('formview new item', newCommuteData);
+  return newCommuteData;
+};
+// };
+
+
+// form.reset();
+// });
+// };
 
 
 module.exports = FormView;
