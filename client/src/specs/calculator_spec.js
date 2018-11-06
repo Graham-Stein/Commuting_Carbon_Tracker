@@ -27,14 +27,14 @@ describe('Calculator', function() {
     assert.strictEqual('10', actual);
   });
 
-  it('should have a number of trips', function() {
-    const actual = calculator1.carbonOutput();
-    assert.strictEqual('10', actual);
+  it('should be able to return total distance', function() {
+    const actual = calculator1.totalDistance();
+    assert.strictEqual(actual, 100);
   });
 
-  xit('should be able to return total distance', function() {
-    const actual = calculator1.totalDistance;
-    assert.strictEqual(200, actual);
+  it('should be able to calculate a worst case scenarip', function() {
+    const actual = calculator1.worstCase();
+    assert.strictEqual(actual, 28.6);
   });
 
   xit('should be able to calculate distance', function() {
