@@ -47,18 +47,29 @@ Calculator.prototype.carbonOutput = function() {
   // use those to extract number of trips from this.data for each key
   // });
   // then multiply by this.data.STD and const for travel type}
+// Calculator.prototype.handleTripData = function(factorKey) {
+//   Object.entries(this.data).for(
+//       ([dataKey, value]) => {
+//         // console.log('factor key', factorKey);
+//         // console.log('data key', dataKey);
+//         if (factorKey == dataKey) {
+//           const singleTrips = value;
+//           console.log('value', value);
+//           console.log('Travel mode Trips:', singleTrips);
+//         };
+//       });
+//   return value;
+// };
+
 Calculator.prototype.handleTripData = function(factorKey) {
-  Object.entries(this.data).forEach(
-      ([dataKey, value]) => {
-        // console.log('factor key', factorKey);
-        // console.log('data key', dataKey);
-        if (factorKey == dataKey) {
-          const singleTrips = value;
-          console.log('value', value);
-          console.log('Travel mode Trips:', singleTrips);
-          return value;
-        };
-      });
+  for (const [dataKey, value] of Object.entries(this.data)) {
+    if (factorKey == dataKey) {
+      const singleTrips = value;
+      console.log('value', value);
+      console.log('Travel mode Trips:', singleTrips);
+      return singleTrips;
+    };
+  };
 };
 
 Calculator.prototype.worstCase = function() {

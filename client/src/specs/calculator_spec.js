@@ -39,7 +39,7 @@ describe('Calculator', function() {
 
   it('should be able to return single trip number by method', function() {
     const actual = calculator1.handleTripData('carDiesel')
-    assert.strictEqual(actual, 5);
+    assert.strictEqual(actual, '5');
   });
 
   xit('should be able to calculate emissions', function() {
