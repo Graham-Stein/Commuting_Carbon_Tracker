@@ -32,13 +32,18 @@ describe('Calculator', function() {
     assert.strictEqual(actual, 100);
   });
 
-  it('should be able to calculate a worst case scenario', function() {
+  xit('should be able to calculate a worst case scenario', function() {
     const actual = calculator1.worstCase();
     assert.strictEqual(actual, 28.6);
   });
 
   it('should be able to return single trip number by method', function() {
-    const actual = calculator1.handleTripData('carDiesel')
+    const actual = calculator1.handleTripData('carDiesel');
+    assert.strictEqual(actual, '5');
+  });
+
+  it('should be able to return single trip data', function() {
+    const actual = calculator1.totalCarbonPerSingleMode();
     assert.strictEqual(actual, '5');
   });
 

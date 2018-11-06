@@ -1,11 +1,11 @@
 const PubSub = require('../helpers/pub_sub.js');
 
 const Calculator = function() {
-  this.coversionFactors = {carDiesel: 0.218, // add values here
+  this.conversionFactors = {carDiesel: 0.218, // add values here
     carPetrol: 0.286, // gCO2e/km
     carHybrid: 0.118,
     bus: 0.124,
-    cycle: 10}; // more figures on docs
+    cycle: 0}; // more figures on docs
   // this.data = data;
 };
 
@@ -30,46 +30,31 @@ Calculator.prototype.totalDistance = function() {
   return totalDistance;
 };
 
-Calculator.prototype.carbonOutput = function() {
-  // take in this.data
-  // loop through this.coversionFactors keys and values
-  Object.entries(this.conversionFactors).forEach(
-      ([key, value]) => {
-        console.log(key, value);
-        const singleTrips = handleTripData(key);
-        return singleTrips;
-        // get the total distance
-        // multiply singleTrips * totalDistance * value (the conversion value)
-        // make a JS Object using existing key name and the value calculated above
-      });
+Calculator.prototype.totalCarbonPerSingleMode = function() {
+  const object = {};
+  for (const [conversionFactorKey, value] of Object.entries(this.conversionFactors)) {
+    const singleTrips = this.handleTripData(conversionFactorKey);
+    console.log('calling single trips', singleTrips);
+    const totalCO2 = singleTrips * value * this.data.singleTripDistance;
+    object[conversionFactorKey] = totalCO2;
+  };
+  console.log('the object', object);
+  return object;
 };
-  // console.log('tripNumber in carbon output:', tripNumber);
-  // use those to extract number of trips from this.data for each key
-  // });
-  // then multiply by this.data.STD and const for travel type}
-// Calculator.prototype.handleTripData = function(factorKey) {
-//   Object.entries(this.data).for(
-//       ([dataKey, value]) => {
-//         // console.log('factor key', factorKey);
-//         // console.log('data key', dataKey);
-//         if (factorKey == dataKey) {
-//           const singleTrips = value;
-//           console.log('value', value);
-//           console.log('Travel mode Trips:', singleTrips);
-//         };
-//       });
-//   return value;
-// };
 
 Calculator.prototype.handleTripData = function(factorKey) {
-  for (const [dataKey, value] of Object.entries(this.data)) {
-    if (factorKey == dataKey) {
-      const singleTrips = value;
-      console.log('value', value);
-      console.log('Travel mode Trips:', singleTrips);
-      return singleTrips;
-    };
-  };
+  const singleTrips = this.data[factorKey];
+  return singleTrips;
+
+  //
+  // for (const [dataKey, value] of Object.entries(this.data)) {
+  //   if (factorKey == dataKey) {
+  //     const singleTrips = value;
+  //     // console.log('value', value);
+  //     // console.log('Travel mode Trips:', singleTrips);
+  //     return singleTrips;
+  //   };
+  // };
 };
 
 Calculator.prototype.worstCase = function() {
