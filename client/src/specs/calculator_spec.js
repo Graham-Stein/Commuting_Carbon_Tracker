@@ -37,9 +37,9 @@ describe('Calculator', function() {
     assert.strictEqual(actual, 28.6);
   });
 
-  xit('should be able to calculate distance', function() {
-    const actual = calculator1.distanceByMode('Diesel Car');
-    assert.strictEqual(actual, 50);
+  it('should be able to return single trip number by method', function() {
+    const actual = calculator1.handleTripData('carDiesel')
+    assert.strictEqual(actual, 5);
   });
 
   xit('should be able to calculate emissions', function() {

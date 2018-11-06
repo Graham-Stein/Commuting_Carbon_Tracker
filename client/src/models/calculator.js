@@ -50,8 +50,10 @@ Calculator.prototype.carbonOutput = function() {
 Calculator.prototype.handleTripData = function(factorKey) {
   Object.entries(this.data).forEach(
       ([dataKey, value]) => {
+        // console.log('factor key', factorKey);
+        console.log('data key', dataKey);
         if (factorKey == dataKey) {
-          singleTrips = value;
+          const singleTrips = value;
           console.log('Travel mode Trips:', singleTrips);
           return singleTrips;
         };
@@ -69,13 +71,5 @@ Calculator.prototype.bus = function() {
   const result = bus * this.totalDistance();
   return result;
 };
-
-Calculator.prototype.inputCarbon = function() {
-  this.data.forEach();
-
-  return result;
-};
-
-
 
 module.exports = Calculator;
