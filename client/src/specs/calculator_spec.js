@@ -16,7 +16,8 @@ describe('Calculator', function() {
       bus: '4',
       cycle: '1',
     };
-    calculator1 = new Calculator(data);
+    calculator1 = new Calculator();
+    calculator1.setData(data);
     // calculator1.bindEvents();
     // PubSub.publish('FormView:add-item', data);
   });

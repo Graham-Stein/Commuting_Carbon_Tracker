@@ -1,19 +1,23 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const Calculator = function(data) {
+const Calculator = function() {
   this.coversionFactors = {carDiesel: 0.218, // add values here
     carPetrol: 0.286, // gCO2e/km
     carHybrid: 0.118,
     bus: 0.124,
     cycle: 10}; // more figures on docs
-  this.data = data;
+  // this.data = data;
 };
 
 Calculator.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:add-item', (evt) => {
-    this.data = evt.detail;
+    this.setData(evt.detail);
     console.log('Calc receiving data', this.data);
   });
+};
+
+Calculator.prototype.setData = function(data) {
+  this.data = data;
 };
 
 Calculator.prototype.totalDistance = function() {
@@ -36,13 +40,13 @@ Calculator.prototype.carbonOutput = function() {
         return tripNumber;
       });
   // this.coversionFactors.forEach((key) => {
-  //   return key;
-  //   const factor = this.coversionFactors[key];
+  // return key;
+  // const factor = this.coversionFactors[key];
   //   console.log('Factor', factor);
 
-    // const tripNumber = handleTripData(key);
-    // console.log('tripNumber in carbon output:', tripNumber);
-    // use those to extract number of trips from this.data for each key
+  // const tripNumber = handleTripData(key);
+  // console.log('tripNumber in carbon output:', tripNumber);
+  // use those to extract number of trips from this.data for each key
   // });
   // then multiply by this.data.STD and const for travel type}
 };
