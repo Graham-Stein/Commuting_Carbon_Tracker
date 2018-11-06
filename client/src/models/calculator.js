@@ -77,5 +77,4 @@ Calculator.prototype.inputCarbon = function() {
 };
 
 
-
 module.exports = Calculator;
