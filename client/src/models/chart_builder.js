@@ -84,7 +84,6 @@ ChartBuilder.prototype.build = function() {
     }],
 
   });
-  // chartContainer.appendChild(myChart);
 };
 
 module.exports = ChartBuilder;

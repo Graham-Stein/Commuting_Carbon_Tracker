@@ -1,12 +1,11 @@
 const PubSub = require('../helpers/pub_sub.js');
 
 const Calculator = function() {
-  this.conversionFactors = {carDiesel: 0.218, // add values here
+  this.conversionFactors = {carDiesel: 0.218,
     carPetrol: 0.286, // gCO2e/km
     carHybrid: 0.118,
     bus: 0.124,
     cycle: 0}; // more figures on docs
-  // this.data = data;
 };
 
 Calculator.prototype.bindEvents = function() {
@@ -50,7 +49,7 @@ Calculator.prototype.totalCarbonUserBreakdown = function() {
     userBreakdownObject[conversionFactorKey] = totalCO2;
   };
   PubSub.publish('Calculator:output-user-commute', userBreakdownObject);
-  return userBreakdownObject; // This will pubsub eventually
+  return userBreakdownObject; // kept for purposes of unit testing
 };
 
 Calculator.prototype.handleTripData = function(factorKey) {

@@ -12,8 +12,6 @@ ResultView.prototype.bindEvents = function() {
     // console.log('result view', evt);
     this.render(evt.details);
   });
-  //  create an object that will get populated with the data that's coming
-  // console.log('log all result data', allResultData);
   // subscribe for all output
   PubSub.subscribe('Calculator:output-all', (evt) =>{
     // trigger an all output function
@@ -23,7 +21,6 @@ ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('Calculator:output-user-commute', (evt) =>{
     // trigger a user output function
     this.populateUserCommuteData(evt.detail);
-    // console.log('calculator passing in', evt);
   });
 };
 
@@ -37,10 +34,8 @@ ResultView.prototype.populateAllData = function(outputAllData) {
   allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
   if (allResultData.userMix === null) {
-    // console.log('running populate all data', allResultData);
     return allResultData;
   } else {
-    // we might not be publishing --- this line is to send the data to highcharts
     console.log('all result data ready', allResultData);
     PubSub.publish('ResultView:highchart-data-ready', allResultData);
   }
