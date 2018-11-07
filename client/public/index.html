@@ -33,12 +33,12 @@
     <ul class="flex-outer">
         <li>
         <label for="commuting-days">How many days a week do you commute?</label>
-        <input type="number" id="commuting-days" placeholder="Enter the number of days you travel">
+        <input type="number" id="commuting-days" placeholder="Enter the number of days you travel" min="0">
       </li>
 
       <li>
         <label for="single-trips-per-day">How many single trips do you make in a day?</label>
-        <input type="number" id="single-trips-per-day" placeholder="Enter how many one way trips per day">
+        <input type="number" id="single-trips-per-day" placeholder="Enter how many one way trips per day" min="0">
    </li>
 
 
@@ -82,27 +82,27 @@
 
     <li>
      <label for="car-diesel">Diesel Car:</label>
-     <input type="number" id="car-diesel" placeholder="Enter how many trips by diesel car">
+     <input type="number" id="car-diesel" placeholder="Enter how many trips by diesel car"  min="0">
     </li>
 
       <li>
      <label for="car-petrol">Petrol Car:</label>
-     <input type="number" id="car-petrol" placeholder="Enter how many trips by petrol car">
+     <input type="number" id="car-petrol" placeholder="Enter how many trips by petrol car" min="0">
     </li>
 
       <li>
      <label for="car-hybrid">Hybrid Car:</label>
-     <input type="number" id="car-hybrid" placeholder="Enter how many trips by hybrid car">
+     <input type="number" id="car-hybrid" placeholder="Enter how many trips by hybrid car" min="0">
     </li>
 
        <li>
      <label for="bus">Bus:</label>
-     <input type="number" id="bus" placeholder="Enter how many trips by bus">
+     <input type="number" id="bus" placeholder="Enter how many trips by bus" min="0">
     </li>
 
              <li>
      <label for="cycle">Cycle / Walk:</label>
-     <input type="number" id="cycle" placeholder="Enter how many trips by bike">
+     <input type="number" id="cycle" placeholder="Enter how many trips by bike" min="0">
     </li>
 
   <input type="submit" name="" value="Save">
@@ -121,9 +121,8 @@
 
 
  <section> Just Eat View </section>
-  <!-- <div class="help" id="bike-help">
-   Currently, your commute contributes [num] carbon. You could save [num] by cycling.
-  </div> -->
+  <div class="help" id="bike-help">
+  </div>
 
  <div id="bikeMap" style="width:100%;height:400px;"></div>
 
