@@ -57,7 +57,7 @@ ResultView.prototype.populateUserCommuteData = function(outputUserData) {
   userTotal = userTotal + outputUserData.carHybrid;
   userTotal = userTotal + outputUserData.bus;
   userTotal = userTotal + outputUserData.cycle;
-  console.log("user total", userTotal);
+  console.log('user total', userTotal);
   // set user value
   allResultData.userMix = userTotal;
   // console.log("user data", userTotal);
