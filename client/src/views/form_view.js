@@ -21,8 +21,10 @@ FormView.prototype.handleSubmit = function(evt) {
 };
 
 FormView.prototype.createNewCommute = function(form) {
+//pubsub subscribe
+// const distance = evt.detail/1000
   const newCommuteData = {
-    singleTripDistance: form['single-trip-distance'].value,
+    singleTripDistance: form['single-trip-distance'].value,//Dist in Km from gmap:single-trip-distance
     commutingDays: form['commuting-days'].value,
     singleTripsPerDay: form['single-trips-per-day'].value,
     carDiesel: form['car-diesel'].value,
