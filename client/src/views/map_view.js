@@ -1,24 +1,26 @@
 const MapView = function(formElement) {
   this.element = formElement;
+  this.googleMap = null;
 };
 
 MapView.prototype.bindEvents = function() {
-  this.render();
+  this.loadGoogleMapsAPI();
 };
 
-MapView.prototype.render = function() {
+MapView.prototype.loadGoogleMapsAPI = function() {
+  window.loadGoogleMapsApiCallback = () => {
+    this.initMap();
+  };
   const jsFile = document.createElement('script');
   jsFile.type = 'text/javascript';
-  jsFile.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyBoO6B6p5m4VVbdXE0aN5C-CTa9ECTXeCs';
+  jsFile.src = 'https://maps.googleapis.com/maps/api/js?callback=loadGoogleMapsApiCallback&key=null';
   document.getElementsByTagName('head')[0].appendChild(jsFile);
 };
 
-var mapProp;
-
 MapView.prototype.initMap = function() {
-  mapProp = new google.maps.Map(document.getElementById('googleMap'), {
+  this.googleMap = new google.maps.Map(document.getElementById('googleMap'), {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
-    zoom: 8,
+    zoom: 10,
   });
 };
 
