@@ -10,6 +10,7 @@ ChartBuilder.prototype.bindEvents = function() {
   PubSub.subscribe('ResultView:highchart-data-ready', (evt) => {
     console.log('chartbuilder getting data', evt.detail);
     this.setData(evt.detail);
+    this.build();
   });
 };
 
@@ -19,70 +20,71 @@ ChartBuilder.prototype.setData = function(data) {
 };
 
 // ////////////////////////////////////////////////////
-(function() {
+ChartBuilder.prototype.build = function() {
+  const chartContainer = document.querySelector('#container');
+  const myChart = Highcharts.chart(chartContainer, {
 
-var myChart = Highcharts.chart('container', {
-
-  chart: {
-    type: 'bar',
-  },
-
-  title: {
-    text: 'Your Commute',
-  },
-
-  plotOptions: {
-    series: {
-      dataLabels: {
-        enabled: true,
-        inside: true,
-      },
+    chart: {
+      type: 'bar',
     },
-  },
 
-  xAxis: {
-    type: 'category',
-    lineWidth: 0,
-    tickWidth: 0,
-  },
-
-  yAxis: {
     title: {
-      text: '',
+      text: 'Your Commute',
     },
-  },
 
-  series: [{
-    dataLabels: [{
-      align: 'right',
-      format: '{y} c02/km',
-    }],
-    data: [{
-      y: this.data.userMix,
-      name: 'Your mix',
-      dataLabels: {
-        color: 'white',
+    plotOptions: {
+      series: {
+        dataLabels: {
+          enabled: true,
+          inside: true,
+        },
       },
-    }, {
-      y: this.data.cycle,
-      name: 'If only Bike',
-    }, {
-      y: this.data.bus,
-      name: 'If only Bus',
-    }, {
-      y: this.data.carDiesel,
-      name: 'If only Diesel',
-    }, {
-      y: this.data.carPetrol,
-      name: 'If only Petrol',
-    }, {
-      y: this.data.carHybrid,
-      name: 'If only Hybrid',
-    }],
-    showInLegend: false,
-  }],
+    },
 
-});
-});
+    xAxis: {
+      type: 'category',
+      lineWidth: 0,
+      tickWidth: 0,
+    },
+
+    yAxis: {
+      title: {
+        text: '',
+      },
+    },
+
+    series: [{
+      dataLabels: [{
+        align: 'right',
+        format: '{y} c02/km',
+      }],
+      data: [{
+        y: this.data.userMix,
+        name: 'Your mix',
+        dataLabels: {
+          color: 'white',
+        },
+      }, {
+        y: this.data.cycle,
+        name: 'If only Bike',
+      }, {
+        y: this.data.bus,
+        name: 'If only Bus',
+      }, {
+        y: this.data.carDiesel,
+        name: 'If only Diesel',
+      }, {
+        y: this.data.carPetrol,
+        name: 'If only Petrol',
+      }, {
+        y: this.data.carHybrid,
+        name: 'If only Hybrid',
+      }],
+      showInLegend: false,
+    }],
+
+  });
+  // chartContainer.appendChild(myChart);
+};
 
 module.exports = ChartBuilder;
