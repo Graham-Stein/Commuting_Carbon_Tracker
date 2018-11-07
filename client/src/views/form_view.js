@@ -5,7 +5,7 @@ const FormView = function(formElement) {
 };
 
 FormView.prototype.bindEvents = function() {
-  console.log('this element',this.element);
+  console.log('this element', this.element);
   this.element.addEventListener('submit', (evt) => {
     // call handlesubmit
     this.handleSubmit(evt);

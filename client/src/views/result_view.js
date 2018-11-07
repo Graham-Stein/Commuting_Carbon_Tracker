@@ -37,7 +37,7 @@ ResultView.prototype.populateAllData = function(outputAllData) {
   allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
   if (allResultData.userMix === null) {
-    console.log("running populate all data", allResultData);
+    console.log('running populate all data', allResultData);
     return allResultData;
   } else {
     // we might not be publishing --- this line is to send the data to highcharts
