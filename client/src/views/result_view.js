@@ -9,7 +9,7 @@ const allResultData = new AllResultData();
 
 ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:added-item', (evt) => {
-    console.log('result view', evt);
+    // console.log('result view', evt);
     this.render(evt.details);
   });
   //  create an object that will get populated with the data that's coming
@@ -23,7 +23,7 @@ ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('Calculator:output-user-commute', (evt) =>{
     // trigger a user output function
     this.populateUserCommuteData(evt.detail);
-    console.log('calculator passing in', evt);
+    // console.log('calculator passing in', evt);
   });
 };
 
@@ -37,7 +37,7 @@ ResultView.prototype.populateAllData = function(outputAllData) {
   allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
   if (allResultData.userMix === null) {
-    console.log('running populate all data', allResultData);
+    // console.log('running populate all data', allResultData);
     return allResultData;
   } else {
     // we might not be publishing --- this line is to send the data to highcharts
@@ -48,7 +48,7 @@ ResultView.prototype.populateAllData = function(outputAllData) {
 
 // your output function
 ResultView.prototype.populateUserCommuteData = function(outputUserData) {
-  console.log('output user data', outputUserData);
+  // console.log('output user data', outputUserData);
   // add first
   let userData = 0;
 
@@ -57,7 +57,7 @@ ResultView.prototype.populateUserCommuteData = function(outputUserData) {
   userTotal = userTotal + outputUserData.carHybrid;
   userTotal = userTotal + outputUserData.bus;
   userTotal = userTotal + outputUserData.cycle;
-  console.log('user total', userTotal);
+  // console.log('user total', userTotal);
   // set user value
   allResultData.userMix = userTotal;
   // console.log("user data", userTotal);

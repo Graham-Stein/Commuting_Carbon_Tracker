@@ -12,7 +12,7 @@ const Calculator = function() {
 Calculator.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:add-item', (evt) => {
     this.setData(evt.detail);
-    console.log('Calc receiving data', this.data);
+    // console.log('Calc receiving data', this.data);
     this.totalCarbonForEachMode();
     this.totalCarbonUserBreakdown();
   });
