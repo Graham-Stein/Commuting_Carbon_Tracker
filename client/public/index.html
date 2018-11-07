@@ -1,47 +1,148 @@
 <!DOCTYPE html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
   <script src="./js/bundle.js"></script>
   <link rel="stylesheet" href="./css/main.css">
+
+  <title>LifeCycle: Carbon Planner</title>
 </head>
+  <div class="header">
+    <a href="#default" class="logo"><img src="http://www.krismac.com/wp-content/uploads/2018/11/squirrelLogo2.png" alt="Life Cycle Log" height="100" width="100"></a>
+  <div class="header-right">
+    <a class="active" href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+</div>
 <body>
-<fieldset>
+<fieldset class="input">
   <legend>Provide details of your weekly travel</legend>
 
- <section>Allocate How You Travel</section>
+ <section>Tell us about your commute</section>
+  <div class=help >Please tell us about your trip to work</div>
   <form id="input-travel">
-    <label for="single-trip-distance">How many kilometers is a single trip:<input type="number" id="single-trip-distance"></label>
+    <ul class="flex-outer">
+        <li>
+        <label for="commuting-days">How many days a week do you commute?</label>
+        <input type="number" id="commuting-days" placeholder="Enter the number of days you travel">
+      </li>
 
-    <label for="commuting-days">How many days a week do you commute?<input type="number" id="commuting-days"></label>
+      <li>
+        <label for="single-trips-per-day">How many single trips do you make in a day?</label>
+        <input type="number" id="single-trips-per-day" placeholder="Enter how many one way trips per day">
+   </li>
 
-    <label for="single-trips-per-day">How many single trips do you make in a day?<input type="number" id="single-trips-per-day"></label>
-    <!-- <input type="submit" name="" value="Save"> -->
-  <!-- </form> -->
 
-<div id="total-daily-distance">
+ <section>Map your trips start and end points</section>
+      <li>
+        <label for="trip-origin">Where do you start:</label>
+        <input type="text" id="trip-origin" placeholder="Enter where you start your journey">
+      </li>
+
+     <li>
+        <label for="trip-destination">Where do you finish:</label>
+        <input type="text" id="trip-destination" placeholder="Enter where you end your journey">
+      </li>
+
+<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
+<div class="help" id="total-daily-distance">and [num] km per week</div>
+
+      <button type="button">Refresh</button>
+
+
+
+      <div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=MYKEY&callback=myMap"></script>
+
+       <!-- </form> -->
+
+
+<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
   <!-- total distance per day returned via javascript here -->
-</div>
 
-  <section>Allocate How You Travel</section>
+
+
+
+<section>Allocate How You Travel</section>
 <!-- <form id="allocate-travel"> -->
-  <div id="allocate-message">
-    Allocate your [num] commute trips to a mode of transport.
+  <div class="help" id="allocate-message">
+    Allocate your [num] weekly trips to a mode of transport.
   </div>
-  <label for="car-diesel">Diesel Car:<input type="number" id="car-diesel"> </label>
-  <label for="car-petrol">Petrol Car:<input type="number" id="car-petrol"> </label>
-  <label for="car-hybrid">Hybrid Car:<input type="number" id="car-hybrid"> </label>
-  <label for="bus">Bus:<input type="number" id="bus"> </label>
-  <label for="cycle">Cycle:<input type="number" id="cycle"> </label>
+
+    <li>
+     <label for="car-diesel">Diesel Car:</label>
+     <input type="number" id="car-diesel" placeholder="Enter how many trips by diesel car">
+    </li>
+
+      <li>
+     <label for="car-petrol">Petrol Car:</label>
+     <input type="number" id="car-petrol" placeholder="Enter how many trips by petrol car">
+    </li>
+
+      <li>
+     <label for="car-hybrid">Hybrid Car:</label>
+     <input type="number" id="car-hybrid" placeholder="Enter how many trips by hybrid car">
+    </li>
+
+       <li>
+     <label for="bus">Bus:</label>
+     <input type="number" id="bus" placeholder="Enter how many trips by bus">
+    </li>
+
+             <li>
+     <label for="cycle">Cycle / Walk:</label>
+     <input type="number" id="cycle" placeholder="Enter how many trips by bike">
+    </li>
+
   <input type="submit" name="" value="Save">
 </form>
-
 </fieldset>
 
-<section id="result-view">
 
-</section>
+<fieldset class="output"><legend>Results View</legend>
+
+
+<section>Your C02</section>
+
+
+ <div id="column" style="width: 100%; height: 610px"></div>
+
+
+
+ <section> Just Eat View </section>
+  <div class="help" id="bike-help">
+   Currently, your commute contributes [num] carbon. You could save [num] by cycling.
+  </div>
+
+ <div id="googleMap2" style="width:100%;height:400px;"></div>
+
+  <div class="bike-box">
+     <h2>Station availability</h2>
+          <div class="bike" id="bike-stations">
+          <div id="travelling-now">Travelling now:</div>
+          <div id="trips-today">Trips Today: </div>
+          <div id="cycling-today">Cyclists Today:</div>
+          <div id="median-trip-duration">Median trip duration:</div>
+          <div id="total-trips">Total this year:</div>
+    </div>
+  </div>
+
+ </fieldset>
 
 </body>
 </html>
