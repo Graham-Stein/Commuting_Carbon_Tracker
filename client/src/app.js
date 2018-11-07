@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bikemap = document.querySelector('#bikeMap');
     const bikeMapView = new MapView(bikemap);
     bikeMapView.bindEvents();
-    bikeMapView.populateBikeStations(); // confirm timing of this???
+    // bikeMapView.populateBikeStations(); // confirm timing of this???
     new AutocompleteDirectionsHandler(mapView.googleMap);
   };
   // add functionality to onIiitComplete to call population of bikeMap from JustEatCycles API data.
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const map = document.querySelector('#googleMap');
   const mapView = new MapView(map, onInitComplete);
   mapView.bindEvents();
+  mapView.populateBikeStations();
 
   // bindEvents ChartBuilder
   const chartBuilder = new ChartBuilder();

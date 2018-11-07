@@ -6,8 +6,13 @@ const MapView = function(container, onInitComplete) {
   this.container = container;
   this.googleMap = null;
   this.onInitComplete = onInitComplete;
-  this.bikeStations = null;
-};
+  this.bikeStations = PubSub.subscribe('CycleStations:stations-ready', (evt) => {
+      // reformat into appropriate json to populate the bikeMap here or in cycle_stations
+      // console.log(evt);
+      this.bikeStations = evt;
+      console.log('this bikestations:', this.bikeStations);
+    });
+
 
 MapView.prototype.bindEvents = function() {
   if (window.google) {
@@ -16,6 +21,7 @@ MapView.prototype.bindEvents = function() {
   } else {
     // console.log('inserting script for gmaps API');
     this.loadGoogleMapsAPI();
+    this.populateBikeStations();
   }
 };
 
@@ -35,19 +41,41 @@ MapView.prototype.initMap = function() {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
     zoom: 10,
   });
-  // if (this.container.id == 'bikeMap') {
-  //   //
-  // }
+  if (this.container.id == 'bikeMap') {
+    console.log('this.bikeStations in init map', this.bikeStations);
+    this.renderBikeStations(this.bikeStations);
+  }
 };
 
-MapView.prototype.populateBikeStations = function() {
-  // subscribe to just eat bike api getData
-  PubSub.subscribe('CycleStations:stations-ready', (evt) => {
-    // reformat into appropriate json to populate the bikeMap here or in cycle_stations
-    // console.log(evt);
-    this.bikeStations = evt;
-    // console.log('this bikestations:', this.bikeStations);
+// MapView.prototype.populateBikeStations = function() {
+//   // subscribe to just eat bike api getData
+//   PubSub.subscribe('CycleStations:stations-ready', (evt) => {
+//     // reformat into appropriate json to populate the bikeMap here or in cycle_stations
+//     // console.log(evt);
+//     this.bikeStations = evt;
+//     console.log('this bikestations:', this.bikeStations);
+//   });
+};
+
+MapView.prototype.renderBikeStations = function(stations) {
+  const markers = [];
+  const bounds = new google.maps.LatLngBounds();
+console.log('TEST', stations);
+  stations.forEach(function (marker) {
+    var position = new google.maps.LatLng(marker.lat, marker.lng);
+
+    markers.push(
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        animation: google.maps.Animation.DROP
+      })
+    );
+
+    bounds.extend(position);
   });
+
+  map.fitBounds(bounds);
 };
 
 module.exports = MapView;
