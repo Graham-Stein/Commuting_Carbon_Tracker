@@ -61,7 +61,6 @@
     <label for="changemode-driving">Driving</label>
   </div>
 
-  <div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
   <!-- <div class="help" id="total-daily-distance">and [num] km per week</div> -->
 
 
@@ -69,6 +68,7 @@
 
        <!-- </form> -->
 
+       <div class="help" id="total-daily-distance"></div>
   <!-- total distance per day returned via javascript here -->
 
 
@@ -76,9 +76,9 @@
 
 <section>Allocate How You Travel</section>
 <!-- <form id="allocate-travel"> -->
-  <!-- <div class="help" id="allocate-message">
-    Allocate your [num] weekly trips to a mode of transport.
-  </div> -->
+  <div class="help" id="allocate-message">
+    Allocate your<span id="trip-count"></span> weekly trips to a mode of transport.
+  </div>
 
     <li>
      <label for="car-diesel">Diesel Car:</label>

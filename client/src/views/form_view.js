@@ -15,8 +15,31 @@ FormView.prototype.bindEvents = function() {
 FormView.prototype.catchMapData = function () {
   PubSub.subscribe('gmap:single-trip-distance', (evt) => {
     const singleTripDistance = evt.detail;
-    this.distance = singleTripDistance / 1000;
+    let kilometers = this.distance = singleTripDistance / 1000;
+    this.calculateSingleTrip(kilometers);
   });
+};
+
+// render the sentence - pass in the distance
+FormView.prototype.calculateSingleTrip = function (kilometers) {
+  let distKilometers = Math.round((kilometers * 2)*100)/100;
+  let miles = Math.round((distKilometers * 0.621371)*100)/100;
+  // console.log("mi", miles);
+  // console.log("km", distKilometers);
+  this.renderSingleTripTip(distKilometers, miles)
+};
+
+FormView.prototype.renderSingleTripTip = function (distKilometers, miles) {
+  let singleTripString = `Based on your entries you travel ${distKilometers}km or ${miles} miles per day`
+  console.log("trip string", singleTripString);
+
+  const singleTripTipDiv = this.element.querySelector('div#total-daily-distance');
+  const singleTripTipContent = document.createElement("p");
+  singleTripTipContent.textContent = singleTripString;
+
+  singleTripTipDiv.innerHTML = '';
+  singleTripTipDiv.appendChild(singleTripTipContent);
+
 };
 
 FormView.prototype.handleSubmit = function(evt) {
