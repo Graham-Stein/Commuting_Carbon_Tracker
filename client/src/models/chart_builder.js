@@ -21,7 +21,7 @@ ChartBuilder.prototype.setData = function(data) {
 
 // ////////////////////////////////////////////////////
 ChartBuilder.prototype.build = function() {
-  const chartContainer = document.querySelector('#container');
+  const chartContainer = document.querySelector('#chart-container');
   const myChart = Highcharts.chart(chartContainer, {
 
     chart: {
