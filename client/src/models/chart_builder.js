@@ -19,7 +19,7 @@ ChartBuilder.prototype.setData = function(data) {
   this.data = data;
 };
 
-// ////////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 ChartBuilder.prototype.build = function() {
   const chartContainer = document.querySelector('#chart-container');
   const myChart = Highcharts.chart(chartContainer, {
