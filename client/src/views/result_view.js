@@ -48,25 +48,17 @@ ResultView.prototype.populateAllData = function(outputAllData) {
 
 // your output function
 ResultView.prototype.populateUserCommuteData = function(outputUserData) {
-  // console.log('output user data', outputUserData);
-  // add first
-  let userData = 0;
+  const values = Object.values(outputUserData);
 
-  let userTotal = userData + outputUserData.carDiesel;
-  userTotal = userTotal + outputUserData.carPetrol;
-  userTotal = userTotal + outputUserData.carHybrid;
-  userTotal = userTotal + outputUserData.bus;
-  userTotal = userTotal + outputUserData.cycle;
-  // console.log('user total', userTotal);
-  // set user value
-  allResultData.userMix = Math.round(userTotal * 100)/100;
-  // Could round here rather than all data points
-  // console.log("user data", userTotal);
-  // console.log("car d", outputUserData.carDiesel);
-  // console.log('final', userTotal);
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  const carbonCount = values.reduce(reducer, 0);
+
+  // console.log('reduced values', carbonCount);
+
+  allResultData.userMix = Math.round(carbonCount * 100)/100;
 
   if (allResultData.carDiesel > 0) {
-    // we might not be publishing --- this line is to send the data to highcharts
     console.log('all result data ready', allResultData);
     PubSub.publish('ResultView:highchart-data-ready', allResultData);
   } else {
