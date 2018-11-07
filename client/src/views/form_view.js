@@ -12,6 +12,13 @@ FormView.prototype.bindEvents = function() {
   });
 };
 
+FormView.prototype.catchMapData = function () {
+  PubSub.subscribe('gmap:single-trip-distance', (evt) => {
+    const singleTripDistance = evt.detail;
+    this.distance = singleTripDistance / 1000;
+  });
+};
+
 FormView.prototype.handleSubmit = function(evt) {
   evt.preventDefault();
   // const form = evt.target;
@@ -24,7 +31,7 @@ FormView.prototype.createNewCommute = function(form) {
 //pubsub subscribe
 // const distance = evt.detail/1000
   const newCommuteData = {
-    singleTripDistance: form['single-trip-distance'].value,//Dist in Km from gmap:single-trip-distance
+    singleTripDistance: this.distance,//Dist in Km from gmap:single-trip-distance
     commutingDays: form['commuting-days'].value,
     singleTripsPerDay: form['single-trips-per-day'].value,
     carDiesel: form['car-diesel'].value,

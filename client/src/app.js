@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     new AutocompleteDirectionsHandler(mapView.googleMap);
   }
 
+  // bindEvents form_view
+  const inputTravel = document.querySelector('form#input-travel');
+  console.log('input travel from app', inputTravel);
+  const formView = new FormView(inputTravel);
+  formView.bindEvents();
+  formView.catchMapData();
+
   const map = document.querySelector('#googleMap');
   const mapView = new MapView(map, onInitComplete);
   mapView.bindEvents();
@@ -26,11 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // bindEvents form_view
-  const inputTravel = document.querySelector('form#input-travel');
-  console.log('input travel from app', inputTravel);
-  const formView = new FormView(inputTravel);
-  formView.bindEvents();
 
   // bindEvents ResultView
   const resultContainer = document.querySelector('section#result-view');
