@@ -5,8 +5,8 @@
       },
     "env": {
       "es6": true
-      },
-      "rules": {
-        "require-jsdoc": false
       }
+      # "rules": {
+      #   "require-jsdoc": false
+      # }
 }

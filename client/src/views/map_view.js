@@ -8,13 +8,11 @@ const MapView = function(container, onInitComplete) {
 };
 
 MapView.prototype.bindEvents = function() {
-
   if (window.google) {
-    console.log('not inserting script again')
+    console.log('not inserting script again');
     this.initMap();
-  }
-  else {
-    console.log('inserting script for gmaps API')
+  } else {
+    console.log('inserting script for gmaps API');
     this.loadGoogleMapsAPI();
   }
 };
@@ -35,7 +33,14 @@ MapView.prototype.initMap = function() {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
     zoom: 10,
   });
+};
 
+MapView.prototype.populateBikeStations = function() {
+  // subscribe to just eat bike api getData
+  PubSub.subscribe('CycleStations:stations-ready', (evt) => {
+    // reformat into appropriate json to populate the bikeMap
+
+  });
 };
 
 module.exports = MapView;
