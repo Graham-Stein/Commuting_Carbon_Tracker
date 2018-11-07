@@ -30,10 +30,10 @@ ResultView.prototype.bindEvents = function() {
 //  all output function
 ResultView.prototype.populateAllData = function(outputAllData) {
   // populate the object
-  allResultData.carDiesel = outputAllData.carDiesel;
-  allResultData.carPetrol = outputAllData.carPetrol;
-  allResultData.carHybrid = outputAllData.carHybrid;
-  allResultData.bus = outputAllData.bus;
+  allResultData.carDiesel = Math.round(outputAllData.carDiesel * 100)/100;
+  allResultData.carPetrol = Math.round(outputAllData.carPetrol * 100)/100;
+  allResultData.carHybrid = Math.round(outputAllData.carHybrid * 100)/100;
+  allResultData.bus = Math.round(outputAllData.bus * 100)/100;
   allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
   if (allResultData.userMix === null) {
@@ -59,7 +59,8 @@ ResultView.prototype.populateUserCommuteData = function(outputUserData) {
   userTotal = userTotal + outputUserData.cycle;
   // console.log('user total', userTotal);
   // set user value
-  allResultData.userMix = userTotal;
+  allResultData.userMix = Math.round(userTotal * 100)/100;
+  // Could round here rather than all data points
   // console.log("user data", userTotal);
   // console.log("car d", outputUserData.carDiesel);
   // console.log('final', userTotal);
