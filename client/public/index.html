@@ -45,27 +45,26 @@
  <section>Map your trips start and end points</section>
 
  <input id="origin-input" class="controls" type="text"
-      placeholder="Enter an origin location">
+      placeholder="Enter an origin">
 
   <input id="destination-input" class="controls" type="text"
-      placeholder="Enter a destination location">
+      placeholder="Enter a destination">
 
-  <div id="mode-selector" class="controls">
-    <input type="radio" name="type" id="changemode-walking" checked="checked">
-    <label for="changemode-walking">Walking</label>
 
-    <input type="radio" name="type" id="changemode-transit">
-    <label for="changemode-transit">Transit</label>
-
-    <input type="radio" name="type" id="changemode-driving">
-    <label for="changemode-driving">Driving</label>
-  </div>
-
-  <div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
-  <div class="help" id="total-daily-distance">and [num] km per week</div>
 
 
       <div id="googleMap" style="width:100%;height:400px;"></div>
+      <div id="mode-selector" class="controls">
+        <input type="radio" name="type" id="changemode-walking" checked="checked">
+        <label for="changemode-walking">Walking</label>
+
+        <input type="radio" name="type" id="changemode-transit">
+        <label for="changemode-transit">Transit</label>
+
+        <input type="radio" name="type" id="changemode-driving">
+        <label for="changemode-driving">Driving</label>
+      </div>
+<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
 
        <!-- </form> -->
 
@@ -116,8 +115,7 @@
 <section>Your C02</section>
 
 
- <div id="chart-container" style="width: 100%; height: 610px"></div>
-
+ <div id="prechart-container" style="width: 90%; height: 390px"><div id="chart-container" style="width: 90%; height: 390px"><p>Your Chart will load here when you submit your c02 score</p></div></div>
 
 
  <section> Just Eat View </section>
