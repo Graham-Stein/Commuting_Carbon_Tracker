@@ -42,13 +42,14 @@ h2 {
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: #7a1113;
+  background-color: #006633;
   color: white;
 }
 
 /* Float the link section to the right */
 .header-right {
   float: right;
+  padding-top: 20%;
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -75,7 +76,7 @@ input[type=button], input[type=submit], input[type=reset] {
   font-size: 1rem;
   line-height:1rem;
   align: right;
-  background-color: #7a1113; /* maroon */
+  background-color: #006633; /* maroon */
   color: white;
   float: right;
 }
@@ -136,7 +137,7 @@ section {
 }
 
 legend {
-   background-color: #7a1113;
+   background-color: #006633;
   padding: 0.75rem;
   font-size: 1.3rem;
   color: white;
