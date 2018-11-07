@@ -6,13 +6,8 @@ const MapView = function(container, onInitComplete) {
   this.container = container;
   this.googleMap = null;
   this.onInitComplete = onInitComplete;
-  this.bikeStations = PubSub.subscribe('CycleStations:stations-ready', (evt) => {
-      // reformat into appropriate json to populate the bikeMap here or in cycle_stations
-      // console.log(evt);
-      this.bikeStations = evt;
-      console.log('this bikestations:', this.bikeStations);
-    });
-
+  this.bikeStations = null;
+};
 
 MapView.prototype.bindEvents = function() {
   if (window.google) {
@@ -47,14 +42,14 @@ MapView.prototype.initMap = function() {
   }
 };
 
-// MapView.prototype.populateBikeStations = function() {
-//   // subscribe to just eat bike api getData
-//   PubSub.subscribe('CycleStations:stations-ready', (evt) => {
-//     // reformat into appropriate json to populate the bikeMap here or in cycle_stations
-//     // console.log(evt);
-//     this.bikeStations = evt;
-//     console.log('this bikestations:', this.bikeStations);
-//   });
+MapView.prototype.populateBikeStations = function() {
+  // subscribe to just eat bike api getData
+  PubSub.subscribe('CycleStations:stations-ready', (evt) => {
+    // reformat into appropriate json to populate the bikeMap here or in cycle_stations
+    // console.log(evt);
+    this.bikeStations = evt;
+    console.log('this bikestations:', this.bikeStations);
+  });
 };
 
 MapView.prototype.renderBikeStations = function(stations) {
