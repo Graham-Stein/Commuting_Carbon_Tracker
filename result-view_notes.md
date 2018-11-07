@@ -29,7 +29,20 @@ to go into highcharts we'll want 1 item:
 {name: "Your Commute", data: 2.6}
 
 
+current state:
+{
+  carDiesel: 1, carPetrol: 2, etc,
+}
+
 an extension.
 If you did your commute purely by [cardiesel] your footprint is [carDiesel:value], as you're going via [list of travel modes that are >0 by user] - the emissions are [num] reduced, you could reduce by [calculate a % of carHybrid by bike] if you commuted by bike [num] trips a week.
 
 Your total is
+
+
+HIGHCHARTS
+We need to have the save button trigger a function in chartBuilder to build the chart.
+
+So using an event listener (already there in form view, just required the chartbuilder and call the function perhaps)
+
+(Other team npm installed highcharts to be able to require in to (in our case chartbuilder) the file)

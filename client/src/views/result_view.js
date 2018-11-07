@@ -9,11 +9,9 @@ const allResultData = new AllResultData();
 
 ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('FormView:added-item', (evt) => {
-    console.log('result view', evt);
+    // console.log('result view', evt);
     this.render(evt.details);
   });
-  //  create an object that will get populated with the data that's coming
-  // console.log('log all result data', allResultData);
   // subscribe for all output
   PubSub.subscribe('Calculator:output-all', (evt) =>{
     // trigger an all output function
@@ -23,24 +21,21 @@ ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('Calculator:output-user-commute', (evt) =>{
     // trigger a user output function
     this.populateUserCommuteData(evt.detail);
-    console.log('calculator passing in', evt);
   });
 };
 
 //  all output function
 ResultView.prototype.populateAllData = function(outputAllData) {
   // populate the object
-  allResultData.carDiesel = outputAllData.carDiesel;
-  allResultData.carPetrol = outputAllData.carPetrol;
-  allResultData.carHybrid = outputAllData.carHybrid;
-  allResultData.bus = outputAllData.bus;
+  allResultData.carDiesel = Math.round(outputAllData.carDiesel * 100)/100;
+  allResultData.carPetrol = Math.round(outputAllData.carPetrol * 100)/100;
+  allResultData.carHybrid = Math.round(outputAllData.carHybrid * 100)/100;
+  allResultData.bus = Math.round(outputAllData.bus * 100)/100;
   allResultData.cycle = outputAllData.cycle;
   // if statement to check the object is fully populated.
   if (allResultData.userMix === null) {
-    console.log("running populate all data", allResultData);
     return allResultData;
   } else {
-    // we might not be publishing --- this line is to send the data to highcharts
     console.log('all result data ready', allResultData);
     PubSub.publish('ResultView:highchart-data-ready', allResultData);
   }
@@ -48,24 +43,17 @@ ResultView.prototype.populateAllData = function(outputAllData) {
 
 // your output function
 ResultView.prototype.populateUserCommuteData = function(outputUserData) {
-  console.log('output user data', outputUserData);
-  // add first
-  let userData = 0;
+  const values = Object.values(outputUserData);
 
-  let userTotal = userData + outputUserData.carDiesel;
-  userTotal = userTotal + outputUserData.carPetrol;
-  userTotal = userTotal + outputUserData.carHybrid;
-  userTotal = userTotal + outputUserData.bus;
-  userTotal = userTotal + outputUserData.cycle;
-  console.log("user total", userTotal);
-  // set user value
-  allResultData.userMix = userTotal;
-  // console.log("user data", userTotal);
-  // console.log("car d", outputUserData.carDiesel);
-  // console.log('final', userTotal);
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  const carbonCount = values.reduce(reducer, 0);
+
+  // console.log('reduced values', carbonCount);
+
+  allResultData.userMix = Math.round(carbonCount * 100)/100;
 
   if (allResultData.carDiesel > 0) {
-    // we might not be publishing --- this line is to send the data to highcharts
     console.log('all result data ready', allResultData);
     PubSub.publish('ResultView:highchart-data-ready', allResultData);
   } else {
