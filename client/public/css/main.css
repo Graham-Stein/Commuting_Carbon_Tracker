@@ -302,6 +302,13 @@ button active {
     color: white;
     float: right;
 }
+
+#chart-container {
+    min-width: 300px;
+    max-width: 400px;
+    height: 500px;
+    margin: 1em auto;
+  }
 /* #show {
   margin-top: 1em;
   visibility: hidden;
@@ -321,5 +328,4 @@ button active {
   top: 10px;
   right: 10px;
   color: #333;
-  text-decoration: none;
-}
+  text-decoration: none;}
