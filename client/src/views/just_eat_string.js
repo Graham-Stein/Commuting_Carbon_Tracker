@@ -15,7 +15,7 @@ JustEatString.prototype.bindEvents = function () {
 JustEatString.prototype.renderString = function (allResultData) {
   let bikeHelpString = `Currently, your commute has a carbon footprint of ${allResultData.userMix}gCO2e.  By cycling or walking for even one trip you could reduce your carbon footprint.`
 
-  let checkMapString = `Check the map below for just eat cycle stations convenient to your route.`
+  let checkMapString = `Check the map below for Just Eat cycle stations convenient to your route.`
 
   const bikeHelpDiv = this.container;
   const bikeHelpContent = document.createElement("p");
@@ -23,6 +23,7 @@ JustEatString.prototype.renderString = function (allResultData) {
   const checkMapContent = document.createElement("p");
   checkMapContent.textContent = checkMapString;
 
+  this.container.innerHTML = '';
   bikeHelpDiv.appendChild(bikeHelpContent);
   bikeHelpDiv.appendChild(checkMapContent);
   // console.log(bikeHelpString);
