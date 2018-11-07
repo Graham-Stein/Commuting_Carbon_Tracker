@@ -8,6 +8,7 @@ const MapView = function(container, onInitComplete) {
 };
 
 MapView.prototype.bindEvents = function() {
+
   if (window.google) {
     console.log('not inserting script again')
     this.initMap();
@@ -35,7 +36,6 @@ MapView.prototype.initMap = function() {
     zoom: 10,
   });
 
-  new AutocompleteDirectionsHandler(this.googleMap);
 };
 
 module.exports = MapView;

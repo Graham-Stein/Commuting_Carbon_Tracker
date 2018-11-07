@@ -3,6 +3,8 @@ const Calculator = require('./models/calculator.js');
 const FormView = require('./views/form_view.js');
 const ResultView = require('./views/result_view.js');
 const MapView = require('./views/map_view.js');
+const AutocompleteDirectionsHandler = require('./views/gmap.js');
+
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JS Loaded');
@@ -10,13 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
   calc.bindEvents();
   // });
 
-  // render a MapView
-  // new MapView
-  // call 'render map' googleMap
+  const onInitComplete = () => {
+    const bikemap = document.querySelector('#bikeMap');
+    const bikeMapView = new MapView(bikemap);
+    bikeMapView.bindEvents();
+    new AutocompleteDirectionsHandler(mapView.googleMap);
+  }
 
   const map = document.querySelector('#googleMap');
-  const mapView = new MapView(map);
+  const mapView = new MapView(map, onInitComplete);
   mapView.bindEvents();
+
+
+
 
   // bindEvents form_view
   const inputTravel = document.querySelector('form#input-travel');
@@ -28,4 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultContainer = document.querySelector('section#result-view');
   const resultView = new ResultView(resultContainer);
   resultView.bindEvents();
+
 });
