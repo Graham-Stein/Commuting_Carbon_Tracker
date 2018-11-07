@@ -28,7 +28,7 @@
   <legend>Provide details of your weekly travel</legend>
 
  <section>Tell us about your commute</section>
-  <div class=help >Please tell us about your trip to work</div>
+  <div class=help >Please tell us about your trip to work.</div>
   <form id="input-travel">
     <ul class="flex-outer">
         <li>
@@ -42,8 +42,8 @@
    </li>
 
 
- <section>Map your trips start and end points</section>
-
+ <section>Tell us your trips start and end points</section>
+<div class=help >Using the map, please tell us where you travel from and where you work.</div>
  <input id="origin-input" class="controls" type="text"
       placeholder="Enter an origin">
 
@@ -64,7 +64,7 @@
         <input type="radio" name="type" id="changemode-driving">
         <label for="changemode-driving">Driving</label>
       </div>
-<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day</div>
+<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day.</div>
 
        <!-- </form> -->
 
@@ -73,7 +73,7 @@
 
 
 
-<section>Allocate How You Travel</section>
+<section>Tell us how you travel</section>
 <!-- <form id="allocate-travel"> -->
   <div class="help" id="allocate-message">
     Allocate your [num] weekly trips to a mode of transport.
@@ -112,13 +112,13 @@
 <fieldset class="output"><legend>Results View</legend>
 
 
-<section>Your C02</section>
+<section>Your c02</section>
+
+<div class=help> You can alter your trips or allocations to see how your journey could look.</div>
+ <div id="prechart-container" style="width: 90%; height: 390px"><div id="chart-container" style="width: 90%; height: 390px"><div id="help-holder"><p>Your Chart will load here when you submit a c02 score</p></div></div></div>
 
 
- <div id="prechart-container" style="width: 90%; height: 390px"><div id="chart-container" style="width: 90%; height: 390px"><p>Your Chart will load here when you submit your c02 score</p></div></div>
-
-
- <section> Just Eat View </section>
+ <section> City bikes view </section>
   <div class="help" id="bike-help">
    Currently, your commute contributes [num] carbon. You could save [num] by cycling.
   </div>
