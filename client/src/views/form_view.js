@@ -5,7 +5,7 @@ const FormView = function(formElement) {
 };
 
 FormView.prototype.bindEvents = function() {
-  console.log('this element',this.element);
+  // console.log('this element', this.element);
   this.element.addEventListener('submit', (evt) => {
     // call handlesubmit
     this.handleSubmit(evt);
@@ -31,7 +31,7 @@ FormView.prototype.createNewCommute = function(form) {
     bus: form['bus'].value,
     cycle: form['cycle'].value,
   };
-  console.log('formview new item', newCommuteData);
+  // console.log('formview new item', newCommuteData);
   return newCommuteData;
 };
 // };
