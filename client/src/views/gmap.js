@@ -74,8 +74,6 @@ AutocompleteDirectionsHandler.prototype.route = function() {
     if (status === 'OK') {
       const distance = response.routes[0].legs[0].distance.value;
       PubSub.publish('gmap:single-trip-distance', distance);
-      console.log('RESPONSE WITH DISTANCES???', response);
-      console.log('RESPONSE WITH DISTANCES IN m???', response.routes[0].legs[0].distance.value);
       me.directionsDisplay.setDirections(response);
     } else {
       window.alert('Directions request failed due to ' + status);

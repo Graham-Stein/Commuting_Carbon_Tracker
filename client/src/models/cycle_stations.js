@@ -26,5 +26,9 @@ CycleStations.prototype.getData = function() {
       });
 };
 
+// CycleStations.prototype.orderData = function() {
+// reorder JSON data here if required.
+// };
+
 
 module.exports = CycleStations;
