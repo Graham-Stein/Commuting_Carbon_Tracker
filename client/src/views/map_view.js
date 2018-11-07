@@ -1,3 +1,5 @@
+const MapKey = require('../key.js');
+
 const MapView = function(formElement) {
   this.element = formElement;
   this.googleMap = null;
@@ -13,7 +15,7 @@ MapView.prototype.loadGoogleMapsAPI = function() {
   };
   const jsFile = document.createElement('script');
   jsFile.type = 'text/javascript';
-  jsFile.src = 'https://maps.googleapis.com/maps/api/js?callback=loadGoogleMapsApiCallback&key=null';
+  jsFile.src = `https://maps.googleapis.com/maps/api/js?callback=loadGoogleMapsApiCallback&key=${MapKey}`;
   document.getElementsByTagName('head')[0].appendChild(jsFile);
 };
 
