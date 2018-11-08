@@ -1,9 +1,9 @@
 Group Project to practice using vanilla JavaScript, external API calls and Express to make a C02 carbon footprint travel web app.
 
-## Readme
+# Readme
 Week 9 of CodeClan Professional Development award involved a JavaScript group project for the CodeClan programming course. 
 
-# Team Anonymous Squirrel consisted of 
+## Team Anonymous Squirrel consisted of 
 - Thomas Gracie (TGracie)
 - Graham Stein (Graham-Stein)
 - Caroline Graves (DeuterGraves)
@@ -20,7 +20,7 @@ CodeClan instructors required that we establish a project to create an applicati
 
 Our trello/kanban dynamically compared our MoSCoW requirements with our backlog/work breakdown status.
 
-## Development
+# Development
 We self organised around 4 sprints, focusing on particular features and functionality within the days. The days were kicked off with a stand-up to support retrospective and re-planning and closed our day with a huddle and code remerges. We took turns in being Scrum Master each day and regularly took turns to drive. 
 
 Our first exercise involved a short burst of independent research followed by a brainstorming session to determine core functionality (MVP) and data sources/approaches. The remainder of sprint 1 involved agreeing user journey/requirements and work breakdown along with laying groundwork such as creating a workflow to support code management around Github.
@@ -43,15 +43,15 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - Compare your carbon footprint.
 - Plan a greener commute. 
 
-# API, Libraries, Resources
+## API, Libraries, Resources
 - [Edinburgh Cycles] (https://edinburghcyclehire.com/)
 - [Google API] (https://developers.google.com/maps/documentation/)
 
-# Update history
+## Update history
 - v 0.1 MPV Release date 07/11/2018
 - v 0.2 Extensions Release 08/11/2018
 
-# Installing and running the app from Github
+## Installing and running the app from Github
 - Clone the repository using git clone link
 - Install webpack using npm install webpack -g
 - Start the server using webpack (npm run build) from the root project folder
@@ -76,7 +76,7 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - [Wireframes / Visualisation v2] (https://docs.google.com/document/d/1qvQ9YpmcJtaMO4__kuJUxQGe89RP5qSnp6FLwJoEeSY/edit?usp=sharing)
 - [Wireframes / Visualisation v1] (https://docs.google.com/document/d/1drn5V93LyvT6_x6iKNzCFm-_3ed1WOx_jc0oy3n7qes/edit?usp=sharing)
 
-##Screenshots:
+# Screenshots:
 - [Homepage](documentation/XXXX.png)
 - [User input](documentation/XXXX.png)
 - [Chart](documentation/XXXX.png)
