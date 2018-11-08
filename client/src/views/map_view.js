@@ -10,14 +10,10 @@ const MapView = function(container, onInitComplete) {
 };
 
 MapView.prototype.bindEvents = function() {
-  console.log('In map view bindevents', this.bikestations);
-  if (window.google) {
-    // console.log('not inserting script again');
-    this.populateBikeStations();
-    this.initMap();
-  } else {
-    // console.log('inserting script for gmaps API');
-    this.loadGoogleMapsAPI();
+  // console.log('In map view bindevents', this.bikestations);
+  console.log("window.google:", window.google);
+  if (!window.google) {
+      this.loadGoogleMapsAPI();
   }
 };
 
@@ -25,7 +21,13 @@ MapView.prototype.loadGoogleMapsAPI = function() {
   window.loadGoogleMapsApiCallback = () => {
     this.initMap();
     this.onInitComplete();
+
+    // PubSub.subscribe('CycleStations:stations-ready', (evt) => {
+    //   this.bikeStations = evt;
+    //   this.initMap();
+    // });
   };
+
   const jsFile = document.createElement('script');
   jsFile.type = 'text/javascript';
   jsFile.src = `https://maps.googleapis.com/maps/api/js?callback=loadGoogleMapsApiCallback&key=${MapKey}&libraries=places`;
@@ -33,10 +35,15 @@ MapView.prototype.loadGoogleMapsAPI = function() {
 };
 
 MapView.prototype.initMap = function() {
+
   this.googleMap = new google.maps.Map(this.container, {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
     zoom: 10,
   });
+
+  console.log("THIS.BIKESTATIONS:", this.bikeStations);
+  console.log("this.container.id:", this.container.id);
+
   if (this.bikeStations != null && this.container.id == 'bikeMap') {
     console.log('this.bikeStations in init map', this.bikeStations);
     this.renderBikeStations(this.bikeStations, this.googleMap);
@@ -46,7 +53,6 @@ MapView.prototype.initMap = function() {
 MapView.prototype.populateBikeStations = function() {
   PubSub.subscribe('CycleStations:stations-ready', (evt) => {
     this.bikeStations = evt;
-    console.log('this bikestations:', this.bikeStations);
     this.initMap();
   });
 };
@@ -56,9 +62,9 @@ MapView.prototype.renderBikeStations = function(stations, map) {
   const bounds = new google.maps.LatLngBounds();
 // console.log('TEST', stations.detail);
   console.log('map in render bikeStations', this.googleMap);
-  stations.detail.forEach(function(marker) {
+  stations.forEach(function(marker) {
     // console.log(marker.lat);
-    let position = new google.maps.LatLng(marker.lat, marker.lon);
+    const position = new google.maps.LatLng(marker.lat, marker.lon);
 
     markers.push(
         new google.maps.Marker({

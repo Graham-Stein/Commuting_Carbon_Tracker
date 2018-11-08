@@ -16,17 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
   const onInitComplete = () => {
+    new AutocompleteDirectionsHandler(mapView.googleMap);
     const bikemap = document.querySelector('#bikeMap');
     const bikeMapView = new MapView(bikemap);
     bikeMapView.bindEvents();
+    // bindEvents JustEatCycles
+    const cycleStations = new CycleStations();
+    cycleStations.getData(bikeMapView);
     // bikeMapView.populateBikeStations(); // confirm timing of this???
-    new AutocompleteDirectionsHandler(mapView.googleMap);
   };
   // add functionality to onIiitComplete to call population of bikeMap from JustEatCycles API data.
 
-  // bindEvents JustEatCycles
-  const cycleStations = new CycleStations();
-  cycleStations.getData();
+
 
   const map = document.querySelector('#googleMap');
   const mapView = new MapView(map, onInitComplete);
