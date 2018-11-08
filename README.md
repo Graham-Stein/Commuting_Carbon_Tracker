@@ -68,6 +68,7 @@ You have been approached by a lifestyle consultancy company dealing with environ
 
 # Submission & Presentation
 - [Rules of the Road](https://docs.google.com/document/d/1MD8Yi4hiPY5XFitAwXBfECcjO00kOQzaFoS4hIiFhRI/edit?usp=sharing)
+- [Presentation 08/11/2018](https://drive.google.com/file/d/1ckq1W8vMnRr4k3CQm2Ua7lMgDQjh2V68/view?usp=sharing- )
 - [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
 - [Brief] (https://docs.google.com/document/d/1SrH_qbrjFJs-NlcG0mSpayMdGvdzKwPnmIJaqfUG0Kw/edit?usp=sharing)
 - [High level solution] (https://docs.google.com/document/d/1CwisGMDIbP_5MyM9EDXcB__jAVByUd8yYl9D9_rcqeY/edit?usp=sharing)
