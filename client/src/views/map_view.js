@@ -10,10 +10,10 @@ const MapView = function(container, onInitComplete) {
 };
 
 MapView.prototype.bindEvents = function() {
-  this.populateBikeStations();
   console.log('In map view bindevents', this.bikestations);
   if (window.google) {
     // console.log('not inserting script again');
+    this.populateBikeStations();
     this.initMap();
   } else {
     // console.log('inserting script for gmaps API');
