@@ -59,7 +59,7 @@ ChartBuilder.prototype.build = function() {
     series: [{
       dataLabels: [{
         align: 'right',
-        format: '{y} gCO2e',
+        format: '{y} kgCO2e',
       }],
       data: [{
         y: this.data.userMix,
