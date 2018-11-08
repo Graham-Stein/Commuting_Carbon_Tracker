@@ -17,6 +17,7 @@ JustEatString.prototype.renderString = function (allResultData) {
 
   let checkMapString = `Check the map below for local bike stations convenient to your route.`
 
+  const bikeBreak = document.createElement("br");
   const bikeHelpDiv = this.container;
   const bikeHelpContent = document.createElement("p");
   bikeHelpContent.textContent = bikeHelpString;
@@ -25,6 +26,7 @@ JustEatString.prototype.renderString = function (allResultData) {
 
   this.container.innerHTML = '';
   bikeHelpDiv.appendChild(bikeHelpContent);
+  bikeHelpDiv.appendChild(bikeBreak);
   bikeHelpDiv.appendChild(checkMapContent);
   // console.log(bikeHelpString);
 };

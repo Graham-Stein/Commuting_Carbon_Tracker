@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-<!-- <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<html lang="en" dir="ltr"> -->
+
 <head>
   <meta charset="utf-8">
   <script src="./js/bundle.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <link rel="stylesheet" href="./css/main.css">
-  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoO6B6p5m4VVbdXE0aN5C-CTa9ECTXeCs">
 
-  </script> -->
 
   <title>LifeCycle: Carbon Planner</title>
 </head>
@@ -66,7 +61,7 @@
         <input type="radio" name="type" id="changemode-driving">
         <label for="changemode-driving">Driving</label>
       </div>
-<div class="help" id="total-daily-distance">Based on your entries you travel [num] km per day.</div>
+<div class="help" id="total-daily-distance"></div>
 
        <!-- </form> -->
 
@@ -117,13 +112,13 @@
 
 <section>Your commute's carbon (C02)</section>
 
-<div class=help> You can alter your trips or allocations to see how your journey could look.</div>
+<div class='help'> You can alter your trips or allocations to see how your journey could look.</div>
  <div id="prechart-container" style="width: 90%; height: 390px"><div id="chart-container" style="width: 90%; height: 390px"><div id="help-holder"><p>Your Chart will load here when you submit a c02 score</p></div></div></div>
 
 
  <section> Your closest city bike station</section>
   <div class="help" id="bike-help">
-   Currently, your commute contributes [num] carbon. You could save [num] by cycling.
+
   </div>
 
  <div id="bikeMap" style="width:100%;height:400px;"></div>
