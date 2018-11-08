@@ -39,7 +39,7 @@ MapView.prototype.initMap = function() {
   });
   if (this.bikeStations != null && this.container.id == 'bikeMap') {
     console.log('this.bikeStations in init map', this.bikeStations);
-    this.renderBikeStations(this.bikeStations);
+    this.renderBikeStations(this.bikeStations, this.googleMap);
   }
 };
 
@@ -54,7 +54,7 @@ MapView.prototype.populateBikeStations = function() {
   });
 };
 
-MapView.prototype.renderBikeStations = function(stations) {
+MapView.prototype.renderBikeStations = function(stations, map) {
   const markers = [];
   const bounds = new google.maps.LatLngBounds();
 // console.log('TEST', stations.detail);
@@ -66,7 +66,7 @@ MapView.prototype.renderBikeStations = function(stations) {
     markers.push(
         new google.maps.Marker({
           position: position,
-          map: this.googleMap,
+          map: map,
           animation: google.maps.Animation.DROP
         })
     );
