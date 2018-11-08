@@ -78,7 +78,7 @@ You have been approached by a lifestyle consultancy company dealing with environ
 
 ##Screenshots:
 - [Homepage](documentation/XXXX.png)
-- [User input] ](documentation/XXXX.png)
+- [User input](documentation/XXXX.png)
 - [Chart](documentation/XXXX.png)
 - [Journey entry](documentation/XXXX.png)
 - [Journey allocation](documentation/XXXX.png)
