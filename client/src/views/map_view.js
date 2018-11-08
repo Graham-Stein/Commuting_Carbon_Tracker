@@ -44,10 +44,7 @@ MapView.prototype.initMap = function() {
 };
 
 MapView.prototype.populateBikeStations = function() {
-  // subscribe to just eat bike api getData
   PubSub.subscribe('CycleStations:stations-ready', (evt) => {
-    // reformat into appropriate json to populate the bikeMap here or in cycle_stations
-    // console.log(evt);
     this.bikeStations = evt;
     console.log('this bikestations:', this.bikeStations);
     this.initMap();
