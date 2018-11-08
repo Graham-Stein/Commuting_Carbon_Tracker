@@ -22,6 +22,9 @@ ChartBuilder.prototype.setData = function(data) {
 // ////////////////////////////////////////////////////
 ChartBuilder.prototype.build = function() {
   const chartContainer = document.querySelector('#chart-container');
+  Highcharts.setOptions({
+    colors: ['#51b148', ]
+});
   const myChart = Highcharts.chart(chartContainer, {
 
     chart: {
@@ -29,7 +32,7 @@ ChartBuilder.prototype.build = function() {
     },
 
     title: {
-      text: 'Your Commute',
+      text: 'Your Weekly Commute',
     },
 
     plotOptions: {
@@ -56,29 +59,29 @@ ChartBuilder.prototype.build = function() {
     series: [{
       dataLabels: [{
         align: 'right',
-        format: '{y} gCO2e/km',
+        format: '{y} kgCO2e',
       }],
       data: [{
         y: this.data.userMix,
-        name: 'Your mix',
+        name: 'Your current mix',
         dataLabels: {
           color: 'white',
         },
       }, {
         y: this.data.cycle,
-        name: 'If only Bike',
-      }, {
-        y: this.data.bus,
-        name: 'If only Bus',
-      }, {
-        y: this.data.carDiesel,
-        name: 'If only Diesel',
-      }, {
-        y: this.data.carPetrol,
-        name: 'If only Petrol',
+        name: 'All Bike',
       }, {
         y: this.data.carHybrid,
-        name: 'If only Hybrid',
+        name: 'All Hybrid Car',
+      }, {
+        y: this.data.bus,
+        name: 'All Bus',
+      }, {
+        y: this.data.carDiesel,
+        name: 'All Diesel Car',
+      }, {
+        y: this.data.carPetrol,
+        name: 'All Petrol Car',
       }],
       showInLegend: false,
     }],

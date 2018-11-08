@@ -5,6 +5,7 @@ const FormView = require('./views/form_view.js');
 const ResultView = require('./views/result_view.js');
 const MapView = require('./views/map_view.js');
 const AutocompleteDirectionsHandler = require('./views/gmap.js');
+const JustEatString = require('./views/just_eat_string.js');
 
 
 const CycleStations = require('./models/cycle_stations.js');
@@ -49,5 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultContainer = document.querySelector('section#result-view');
   const resultView = new ResultView(resultContainer);
   resultView.bindEvents();
+
+  // JustEatString bindEvents
+  const justEatContainer = document.querySelector('div#bike-help');
+  const justEatString = new JustEatString(justEatContainer)
+justEatString.bindEvents();
 
 });
