@@ -34,6 +34,10 @@ MapView.prototype.initMap = function() {
   this.googleMap = new google.maps.Map(this.container, {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
     zoom: 10,
+    mapTypeControl: false,
+    streetViewControl: false,
+    rotateControl: false,
+    zoomControl: false,
   });
 
 };

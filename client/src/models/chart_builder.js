@@ -22,6 +22,9 @@ ChartBuilder.prototype.setData = function(data) {
 // ////////////////////////////////////////////////////
 ChartBuilder.prototype.build = function() {
   const chartContainer = document.querySelector('#chart-container');
+  Highcharts.setOptions({
+    colors: ['#51b148', ]
+});
   const myChart = Highcharts.chart(chartContainer, {
 
     chart: {
@@ -56,7 +59,7 @@ ChartBuilder.prototype.build = function() {
     series: [{
       dataLabels: [{
         align: 'right',
-        format: '{y} gCO2e',
+        format: '{y} kgCO2e',
       }],
       data: [{
         y: this.data.userMix,
