@@ -22,6 +22,9 @@ ChartBuilder.prototype.setData = function(data) {
 // ////////////////////////////////////////////////////
 ChartBuilder.prototype.build = function() {
   const chartContainer = document.querySelector('#chart-container');
+  Highcharts.setOptions({
+    colors: ['#51b148', ]
+});
   const myChart = Highcharts.chart(chartContainer, {
 
     chart: {

@@ -37,7 +37,7 @@ MapView.prototype.initMap = function() {
     mapTypeControl: false,
     streetViewControl: false,
     rotateControl: false,
-    zoomControl: false
+    zoomControl: false,
   });
 
 };
