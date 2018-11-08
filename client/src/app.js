@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const cycleStations = new CycleStations();
   cycleStations.getData();
 
+  const map = document.querySelector('#googleMap');
+  const mapView = new MapView(map, onInitComplete);
+  mapView.bindEvents();
+  // mapView.populateBikeStations();
+
   // bindEvents form_view
   const inputTravel = document.querySelector('form#input-travel');
   // console.log('input travel from app', inputTravel);
   const formView = new FormView(inputTravel);
   formView.bindEvents();
   formView.catchMapData();
-
-  const map = document.querySelector('#googleMap');
-  const mapView = new MapView(map, onInitComplete);
-  mapView.bindEvents();
-  mapView.populateBikeStations();
 
   // bindEvents ChartBuilder
   const chartBuilder = new ChartBuilder();

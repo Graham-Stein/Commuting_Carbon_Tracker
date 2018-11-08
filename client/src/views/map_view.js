@@ -10,13 +10,14 @@ const MapView = function(container, onInitComplete) {
 };
 
 MapView.prototype.bindEvents = function() {
+  this.populateBikeStations();
+  console.log('In map view bindevents', this.bikestations);
   if (window.google) {
     // console.log('not inserting script again');
     this.initMap();
   } else {
     // console.log('inserting script for gmaps API');
     this.loadGoogleMapsAPI();
-    this.populateBikeStations();
   }
 };
 
@@ -36,7 +37,7 @@ MapView.prototype.initMap = function() {
     center: {lat: 55.93715871276677, lng: -3.206435329645956},
     zoom: 10,
   });
-  if (this.container.id == 'bikeMap') {
+  if (this.bikeStations != null && this.container.id == 'bikeMap') {
     console.log('this.bikeStations in init map', this.bikeStations);
     this.renderBikeStations(this.bikeStations);
   }
@@ -49,22 +50,25 @@ MapView.prototype.populateBikeStations = function() {
     // console.log(evt);
     this.bikeStations = evt;
     console.log('this bikestations:', this.bikeStations);
+    this.initMap();
   });
 };
 
 MapView.prototype.renderBikeStations = function(stations) {
   const markers = [];
   const bounds = new google.maps.LatLngBounds();
-console.log('TEST', stations);
-  stations.forEach(function (marker) {
-    var position = new google.maps.LatLng(marker.lat, marker.lng);
+// console.log('TEST', stations.detail);
+  console.log('map in render bikeStations', this.googleMap);
+  stations.detail.forEach(function(marker) {
+    // console.log(marker.lat);
+    let position = new google.maps.LatLng(marker.lat, marker.lon);
 
     markers.push(
-      new google.maps.Marker({
-        position: position,
-        map: map,
-        animation: google.maps.Animation.DROP
-      })
+        new google.maps.Marker({
+          position: position,
+          map: this.googleMap,
+          animation: google.maps.Animation.DROP
+        })
     );
 
     bounds.extend(position);
