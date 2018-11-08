@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cycleStations.getData(bikeMapView);
     // bikeMapView.populateBikeStations(); // confirm timing of this???
   };
-  // add functionality to onIiitComplete to call population of bikeMap from JustEatCycles API data.
-
-
-
+  
   const map = document.querySelector('#googleMap');
   const mapView = new MapView(map, onInitComplete);
   mapView.bindEvents();
