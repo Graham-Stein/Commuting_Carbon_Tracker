@@ -1,9 +1,9 @@
 Group Project to practice using vanilla JavaScript, external API calls and Express to make a C02 carbon footprint travel web app.
 
-##Readme
+## Readme
 Week 9 of CodeClan Professional Development award involved a JavaScript group project for the CodeClan programming course. 
 
-#Team Anonymous Squirrel consisted of 
+# Team Anonymous Squirrel consisted of 
 - Thomas Gracie (TGracie)
 - Graham Stein (Graham-Stein)
 - Caroline Graves (DeuterGraves)
@@ -20,43 +20,43 @@ CodeClan instructors required that we establish a project to create an applicati
 
 Our trello/kanban dynamically compared our MoSCoW requirements with our backlog/work breakdown status.
 
-##Development
+## Development
 We self organised around 4 sprints, focusing on particular features and functionality within the days. The days were kicked off with a stand-up to support retrospective and re-planning and closed our day with a huddle and code remerges. We took turns in being Scrum Master each day and regularly took turns to drive. 
 
 Our first exercise involved a short burst of independent research followed by a brainstorming session to determine core functionality (MVP) and data sources/approaches. The remainder of sprint 1 involved agreeing user journey/requirements and work breakdown along with laying groundwork such as creating a workflow to support code management around Github.
 
-##Technology used
+## Technology used
 - Javascript
 - HTML/CSS
 - Express 
 
-##Life:Cycle Carbon Commute Planner 
+## Life:Cycle Carbon Commute Planner 
 - Making a small change & showing a difference 
 
 ```
 You have been approached by a lifestyle consultancy company dealing with environmental sustainability. Your task is to build a personal CO2 planner app to help users calculates the impact of their commute on their CO2 footprint. The consultancy are seeking to encourage more users to cycle by showing a view of their current impact and the impact alternative modes of transport. 
 ```
 
-##Features
+## Features
 - User entry of trips based on a daily commute.
 - Input your weeks travel or model an ideal week. 
 - Compare your carbon footprint.
 - Plan a greener commute. 
 
-##API, Libraries, Resources
+# API, Libraries, Resources
 - [Edinburgh Cycles] (https://edinburghcyclehire.com/)
 - [Google API] (https://developers.google.com/maps/documentation/)
 
-##Update history
+# Update history
 - v 0.1 MPV Release date 07/11/2018
 - v 0.2 Extensions Release 08/11/2018
 
-##Installing and running the app from Github
+# Installing and running the app from Github
 - Clone the repository using git clone link
 - Install webpack using npm install webpack -g
 - Start the server using webpack (npm run build) from the root project folder
 
-##Learning points
+# Learning points
 - Consolidate our learning of vanilla JavaScript 
 - Pubsub
 - Using API's and data persistence. 
@@ -66,7 +66,7 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - Refactoring
 - CSS
 
-##Submission & Presentation
+# Submission & Presentation
 - [Rules of the Road](https://docs.google.com/document/d/1MD8Yi4hiPY5XFitAwXBfECcjO00kOQzaFoS4hIiFhRI/edit?usp=sharing)
 - [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
 - [Brief] (https://docs.google.com/document/d/1SrH_qbrjFJs-NlcG0mSpayMdGvdzKwPnmIJaqfUG0Kw/edit?usp=sharing)
