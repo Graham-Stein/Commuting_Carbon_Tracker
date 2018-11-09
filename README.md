@@ -44,8 +44,8 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - Plan a greener commute. 
 
 ## API, Libraries, Resources
-- [Edinburgh Cycles] (https://edinburghcyclehire.com/)
-- [Google API] (https://developers.google.com/maps/documentation/)
+- [Edinburgh Cycles](https://edinburghcyclehire.com/)
+- [Google API](https://developers.google.com/maps/documentation/)
 
 ## Update history
 - v 0.1 MPV Release date 07/11/2018
@@ -71,17 +71,16 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - [Presentation 08/11/2018](https://drive.google.com/file/d/1ckq1W8vMnRr4k3CQm2Ua7lMgDQjh2V68/view?usp=sharing- )
 - [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
 - [Brief] (https://docs.google.com/document/d/1SrH_qbrjFJs-NlcG0mSpayMdGvdzKwPnmIJaqfUG0Kw/edit?usp=sharing)
-- [High level solution] (https://docs.google.com/document/d/1CwisGMDIbP_5MyM9EDXcB__jAVByUd8yYl9D9_rcqeY/edit?usp=sharing)
+- [High level solution](https://docs.google.com/document/d/1CwisGMDIbP_5MyM9EDXcB__jAVByUd8yYl9D9_rcqeY/edit?usp=sharing)
 - [Diagrams - ERD - User needs - Use cases] to follow
 - [Inputs/ outputs] to follow
-- [Wireframes / Visualisation v2] (https://docs.google.com/document/d/1qvQ9YpmcJtaMO4__kuJUxQGe89RP5qSnp6FLwJoEeSY/edit?usp=sharing)
-- [Wireframes / Visualisation v1] (https://docs.google.com/document/d/1drn5V93LyvT6_x6iKNzCFm-_3ed1WOx_jc0oy3n7qes/edit?usp=sharing)
+- [Wireframes / Visualisation v2](https://docs.google.com/document/d/1qvQ9YpmcJtaMO4__kuJUxQGe89RP5qSnp6FLwJoEeSY/edit?usp=sharing)
+- [Wireframes / Visualisation v1](https://docs.google.com/document/d/1drn5V93LyvT6_x6iKNzCFm-_3ed1WOx_jc0oy3n7qes/edit?usp=sharing)
 
 # Screenshots:
-- [Homepage](documentation/XXXX.png)
-- [User input](documentation/XXXX.png)
-- [Chart](documentation/XXXX.png)
-- [Journey entry](documentation/XXXX.png)
-- [Journey allocation](documentation/XXXX.png)
-- [Charts](documentation/matches_page.png)
+- [Homepage](documentation/home.png)
+- [User input](documentation/input.png)
+- [Chart](documentation/chart.png)
+- [Journey entry](documentation/route.png)
+- [Journey allocation](documentation/allocate.png)
 - [Public bikes](documentation/XXXX.png)
