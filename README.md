@@ -13,7 +13,7 @@ Using Agile Poker, we evaluated a range of proposed scenarios including a Game, 
 
 The website should take in some input, and display the breakdown of the data in a graph. 
 
-See it here: [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
+See it here: [Code submission via Github repo](https://github.com/Graham-Stein/Commuting_Carbon_Tracker)
 
 ##Specification
 CodeClan instructors required that we establish a project to create an application in 4 days using core Javascript - no front-end frameworks or jQuery were allowed. 
@@ -69,7 +69,7 @@ You have been approached by a lifestyle consultancy company dealing with environ
 # Submission & Presentation
 - [Rules of the Road](https://docs.google.com/document/d/1MD8Yi4hiPY5XFitAwXBfECcjO00kOQzaFoS4hIiFhRI/edit?usp=sharing)
 - [Presentation 08/11/2018](https://drive.google.com/file/d/1ckq1W8vMnRr4k3CQm2Ua7lMgDQjh2V68/view?usp=sharing- )
-- [Code submission via Github repo](https://github.com/krismac/CodeClan_w05_Project_AnimalShelter.git)
+- [Code submission via Github repo](https://github.com/Graham-Stein/Commuting_Carbon_Tracker)
 - [Brief](https://docs.google.com/document/d/1SrH_qbrjFJs-NlcG0mSpayMdGvdzKwPnmIJaqfUG0Kw/edit?usp=sharing)
 - [High level solution](https://docs.google.com/document/d/1CwisGMDIbP_5MyM9EDXcB__jAVByUd8yYl9D9_rcqeY/edit?usp=sharing)
 - [Diagrams - ERD - User needs - Use cases] to follow
