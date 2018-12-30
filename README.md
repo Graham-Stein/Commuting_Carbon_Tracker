@@ -52,9 +52,13 @@ You have been approached by a lifestyle consultancy company dealing with environ
 - v 0.2 Extensions Release 08/11/2018
 
 ## Installing and running the app from Github
-- Clone the repository using git clone link
-- Install webpack using npm install webpack -g
+- Clone the repository using 
+    git clone link
+- Install webpack using 
+    npm install webpack -g
 - Start the server using webpack (npm run build) from the root project folder
+- open index.html in the browser:
+    open client/public/index.html
 
 # Learning points
 - Consolidate our learning of vanilla JavaScript 
